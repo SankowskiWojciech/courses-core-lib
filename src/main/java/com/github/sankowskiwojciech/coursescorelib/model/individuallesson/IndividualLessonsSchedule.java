@@ -19,7 +19,7 @@ public class IndividualLessonsSchedule {
     private ScheduleType scheduleType;
     private Long allLessonsDurationInMinutes;
     private List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes;
-    private List<String> lessonTitles;
+    private List<String> lessonsTitles;
     private OrganizationEntity organizationEntity;
     private TutorEntity tutorEntity;
     private StudentEntity studentEntity;

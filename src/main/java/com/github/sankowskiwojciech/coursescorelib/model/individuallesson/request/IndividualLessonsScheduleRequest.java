@@ -16,7 +16,7 @@ public class IndividualLessonsScheduleRequest {
     private ScheduleType scheduleType;
     private Long allLessonsDurationInMinutes;
     private List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes;
-    private List<String> lessonTitles;
+    private List<String> lessonsTitles;
     private String subdomainName;
     private String tutorId;
     private String studentId;
