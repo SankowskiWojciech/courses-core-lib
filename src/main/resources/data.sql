@@ -41,6 +41,11 @@ values ('not.spam@dancewithme.pl', 'kaminski.bart@dancewithme.pl');
 insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_EMAIL_ADDRESS, USER_EMAIL_ADDRESS)
 values ('sankowski.wojciech@gmail.com', 'rawskaka@gmail.com');
 
+-- LOGIN_CREDENTIALS
+-- password: Test1
+-- Base64 encoded password: VGVzdDE=
+insert into LOGIN_CREDENTIALS(USER_EMAIL_ADDRESS, PASSWORD_HASH, ACCOUNT_TYPE) values ('sankowski.wojciech@gmail.com', '$2a$15$IuZTBhr5cSi9f4uaZ52uOekG.S/CvFRtxNhQGh1yjhHwJrOY0GbkW', 'TUTOR');
+
 -- TOKENS
 insert into TOKEN(TOKEN_ID, TOKEN_VALUE, USER_EMAIL_ADDRESS, ACCOUNT_TYPE, RSA_PUBLIC_KEY, CREATION_DATE_TIME, EXPIRATION_DATE_TIME)
 values ('token1', 'tokenNotIssuedForProvidedClient', 'sankowski.wojciech@gmail.com', 'TUTOR', 'rsaPublicKey', '2020-07-18T18:21:14.144', '2220-07-18T18:21:14.144');
