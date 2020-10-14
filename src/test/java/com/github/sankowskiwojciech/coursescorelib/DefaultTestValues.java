@@ -34,4 +34,10 @@ public interface DefaultTestValues {
     long INDIVIDUAL_LESSON_ID_STUB = 1;
     String LESSON_TITLE_STUB = "Tytul lekcji.";
     String LESSON_DESCRIPTION_STUB = "Opis lekcji.";
+
+    //file
+    long FILE_ID_STUB = 1;
+    String FILE_NAME_STUB = "Test file 1";
+    String FILE_EXTENSION_STUB = "txt";
+    byte[] FILE_CONTENT_STUB = "This is a test file!".getBytes();
 }

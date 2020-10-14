@@ -75,3 +75,23 @@ insert into INDIVIDUAL_LESSON(TITLE, START_DATE_OF_LESSON, END_DATE_OF_LESSON, D
 values ('Angular routing część 2', '2020-09-19T18:00:00', '2020-09-19T20:00:00', 'Kontynuacja kursu dotyczący routingu w Angularze 9+', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com', 'rawskaka@gmail.com', '2020-07-17T18:00:00');
 insert into INDIVIDUAL_LESSON(TITLE, START_DATE_OF_LESSON, END_DATE_OF_LESSON, DESCRIPTION, ORGANIZATION_ID, TUTOR_ID, STUDENT_ID, CREATION_DATE_TIME)
 values ('Angular template-driven forms', '2020-09-18T18:00:00', '2020-09-18T21:00:00', 'Template-driven forms w pigułce.', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com', 'rawskaka@gmail.com', '2020-07-17T18:00:00');
+
+-- LESSON_FILES
+insert into LESSON_FILE(NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+values ('Test file 1', 'txt', STRINGTOUTF8('This is a test file!'), 'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
+insert into LESSON_FILE(NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+values ('Test file 2', 'doc', STRINGTOUTF8('Test file 2'), 'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
+insert into LESSON_FILE(NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+values ('Test file 3', 'pptx', STRINGTOUTF8('Test Test Test Test Test'), 'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
+
+-- INDIVIDUAL_LESSON_FILE
+insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+values (1, 1);
+insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+values (1, 2);
+insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+values (1, 3);
+insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+values (2, 1);
+insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+values (2, 3);
