@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
@@ -35,8 +34,7 @@ public class LessonFileEntity {
     @Column(name = "EXTENSION", length = 5, updatable = false)
     private String extension;
 
-    @Lob
-//    @Basic(fetch = FetchType.LAZY, optional = false) //TODO: check if needed
+    //    @Basic(fetch = FetchType.LAZY, optional = false) //TODO: check if needed
     @Column(name = "CONTENT", nullable = false, updatable = false)
     private byte[] content;
 
