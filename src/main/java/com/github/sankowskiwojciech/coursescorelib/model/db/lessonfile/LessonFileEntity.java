@@ -34,7 +34,6 @@ public class LessonFileEntity {
     @Column(name = "EXTENSION", length = 5, updatable = false)
     private String extension;
 
-    //    @Basic(fetch = FetchType.LAZY, optional = false) //TODO: check if needed
     @Column(name = "CONTENT", nullable = false, updatable = false)
     private byte[] content;
 
