@@ -18,4 +18,6 @@ public interface IndividualLessonRepository extends JpaRepository<IndividualLess
 
     @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE individualLesson.startDateOfLesson >= :startDateOfLesson AND individualLesson.endDateOfLesson <= :endDateOfLesson AND individualLesson.tutorEntity.emailAddress = :tutorEmailAddress AND individualLesson.organizationEntity.emailAddress = :organizationEmailAddress")
     List<IndividualLessonEntity> findAllLessonsInRangeForTutor(@Param("startDateOfLesson") LocalDateTime startDateOfLesson, @Param("endDateOfLesson") LocalDateTime endDateOfLesson, @Param("tutorEmailAddress") String tutorEmailAddress, @Param("organizationEmailAddress") String organizationEmailAddress);
+
+    List<IndividualLessonEntity> findAllByTutorEntityEmailAddress(String tutorId);
 }

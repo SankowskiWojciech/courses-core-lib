@@ -50,11 +50,11 @@ public class IndividualLessonEntity {
     @JoinColumn(name = "ORGANIZATION_ID")
     private OrganizationEntity organizationEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "TUTOR_ID", nullable = false)
     private TutorEntity tutorEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "STUDENT_ID", nullable = false)
     private StudentEntity studentEntity;
 

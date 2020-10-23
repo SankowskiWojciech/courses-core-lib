@@ -136,4 +136,16 @@ public class IndividualLessonRepositoryTest {
         assertNotNull(individualLessonEntities);
         assertFalse(individualLessonEntities.isEmpty());
     }
+
+    @Test
+    public void shouldFindAllEntitiesByTutorIdCorrectly() {
+        //given
+        String tutorIdStub = TUTOR_EMAIL_ADDRESS_STUB;
+
+        //when
+        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByTutorEntityEmailAddress(tutorIdStub);
+
+        //then
+        assertFalse(individualLessonEntities.isEmpty());
+    }
 }
