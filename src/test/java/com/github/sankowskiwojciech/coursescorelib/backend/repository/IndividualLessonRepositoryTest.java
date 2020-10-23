@@ -8,6 +8,7 @@ import com.github.sankowskiwojciech.coursescorelib.stub.IndividualLessonEntitySt
 import com.github.sankowskiwojciech.coursescorelib.stub.OrganizationEntityStub;
 import com.github.sankowskiwojciech.coursescorelib.stub.StudentEntityStub;
 import com.github.sankowskiwojciech.coursescorelib.stub.TutorEntityStub;
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -141,9 +142,10 @@ public class IndividualLessonRepositoryTest {
     public void shouldFindAllEntitiesByTutorIdCorrectly() {
         //given
         String tutorIdStub = TUTOR_EMAIL_ADDRESS_STUB;
+        List<Long> lessonsIdsStub = Lists.newArrayList(1L, 4L, 5L, 7L);
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByTutorEntityEmailAddress(tutorIdStub);
+        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByTutorEntityEmailAddressAndLessonIdIn(tutorIdStub, lessonsIdsStub);
 
         //then
         assertFalse(individualLessonEntities.isEmpty());
