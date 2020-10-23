@@ -139,13 +139,26 @@ public class IndividualLessonRepositoryTest {
     }
 
     @Test
-    public void shouldFindAllEntitiesByTutorIdCorrectly() {
+    public void shouldFindAllEntitiesByTutorIdAndLessonsIdsCorrectly() {
         //given
         String tutorIdStub = TUTOR_EMAIL_ADDRESS_STUB;
         List<Long> lessonsIdsStub = Lists.newArrayList(1L, 4L, 5L, 7L);
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByTutorEntityEmailAddressAndLessonIdIn(tutorIdStub, lessonsIdsStub);
+        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByUserIdAndLessonsIds(tutorIdStub, lessonsIdsStub);
+
+        //then
+        assertFalse(individualLessonEntities.isEmpty());
+    }
+
+    @Test
+    public void shouldFindAllEntitiesByStudentIdAndLessonsIdsCorrectly() {
+        //given
+        String tutorIdStub = STUDENT_EMAIL_ADDRESS_STUB;
+        List<Long> lessonsIdsStub = Lists.newArrayList(1L, 4L, 5L, 7L);
+
+        //when
+        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByUserIdAndLessonsIds(tutorIdStub, lessonsIdsStub);
 
         //then
         assertFalse(individualLessonEntities.isEmpty());
