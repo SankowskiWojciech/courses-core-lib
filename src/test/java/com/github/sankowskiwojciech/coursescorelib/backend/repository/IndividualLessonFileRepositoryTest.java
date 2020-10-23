@@ -60,10 +60,23 @@ public class IndividualLessonFileRepositoryTest {
     @Test
     public void shouldFindAllEntitiesByLessonIdCorrectly() {
         //given
-        long lessonId = INDIVIDUAL_LESSON_ID_STUB;
+        long lessonIdStub = INDIVIDUAL_LESSON_ID_STUB;
 
         //when
-        List<IndividualLessonFileEntity> individualLessonFileEntities = testee.findAllByLessonId(lessonId);
+        List<IndividualLessonFileEntity> individualLessonFileEntities = testee.findAllByLessonId(lessonIdStub);
+
+        //then
+        assertNotNull(individualLessonFileEntities);
+        assertFalse(individualLessonFileEntities.isEmpty());
+    }
+
+    @Test
+    public void shouldFindAllEntitiesByFileIdCorrectly() {
+        //given
+        long fileIdStub = FILE_ID_STUB;
+
+        //when
+        List<IndividualLessonFileEntity> individualLessonFileEntities = testee.findAllByFileId(fileIdStub);
 
         //then
         assertNotNull(individualLessonFileEntities);
