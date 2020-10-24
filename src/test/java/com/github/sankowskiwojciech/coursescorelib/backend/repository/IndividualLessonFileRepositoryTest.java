@@ -3,6 +3,7 @@ package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 import com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson.IndividualLessonFileEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson.IndividualLessonFileEntityId;
 import com.github.sankowskiwojciech.coursescorelib.stub.IndividualLessonFileEntityStub;
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +78,19 @@ public class IndividualLessonFileRepositoryTest {
 
         //when
         List<IndividualLessonFileEntity> individualLessonFileEntities = testee.findAllByFileId(fileIdStub);
+
+        //then
+        assertNotNull(individualLessonFileEntities);
+        assertFalse(individualLessonFileEntities.isEmpty());
+    }
+
+    @Test
+    public void shouldFindAllEntitiesByLessonIdFromListCorrectly() {
+        //given
+        List<Long> lessonsIdsStub = Lists.newArrayList(1L, 2L);
+
+        //when
+        List<IndividualLessonFileEntity> individualLessonFileEntities = testee.findAllByLessonIdIn(lessonsIdsStub);
 
         //then
         assertNotNull(individualLessonFileEntities);

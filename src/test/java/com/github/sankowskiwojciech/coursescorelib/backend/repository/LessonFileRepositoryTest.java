@@ -1,14 +1,18 @@
 package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.lessonfile.LessonFileEntity;
+import com.github.sankowskiwojciech.coursescorelib.model.db.lessonfile.LessonFileWithoutContent;
 import com.github.sankowskiwojciech.coursescorelib.stub.LessonFileEntityStub;
+import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_CONTENT_STUB;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_EXTENSION_STUB;
@@ -16,6 +20,7 @@ import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_NAME_STUB;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -60,5 +65,18 @@ public class LessonFileRepositoryTest {
         assertEquals(new String(FILE_CONTENT_STUB), new String(lessonFileEntity.getContent()));
         assertEquals(TUTOR_EMAIL_ADDRESS_STUB, lessonFileEntity.getCreatedBy());
         assertNotNull(lessonFileEntity.getCreationDateTime());
+    }
+
+    @Test
+    public void shouldFindAllEntitiesWithoutFileContentByFileIdsCorrectly() {
+        //given
+        Set<Long> fileIdsStub = Sets.newHashSet(1L, 2L, 3L);
+
+        //when
+        List<LessonFileWithoutContent> lessonFilesWithoutContent = testee.findAllByFileIdIn(fileIdsStub);
+
+        //then
+        assertNotNull(lessonFilesWithoutContent);
+        assertFalse(lessonFilesWithoutContent.isEmpty());
     }
 }

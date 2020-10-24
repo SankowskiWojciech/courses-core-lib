@@ -13,4 +13,6 @@ public interface IndividualLessonFileRepository extends JpaRepository<Individual
     List<IndividualLessonFileEntity> findAllByLessonId(long lessonId);
 
     List<IndividualLessonFileEntity> findAllByFileId(long fileId);
+
+    List<IndividualLessonFileEntity> findAllByLessonIdIn(List<Long> lessonsIds);
 }
