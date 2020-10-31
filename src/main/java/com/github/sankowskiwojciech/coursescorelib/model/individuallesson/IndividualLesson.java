@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @Getter
@@ -18,4 +19,5 @@ public class IndividualLesson {
     private OrganizationEntity organizationEntity;
     private TutorEntity tutorEntity;
     private StudentEntity studentEntity;
+    private List<Long> filesIds;
 }

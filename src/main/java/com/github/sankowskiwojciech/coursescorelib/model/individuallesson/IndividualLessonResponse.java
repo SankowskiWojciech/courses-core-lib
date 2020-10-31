@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Builder
 @Getter
@@ -16,4 +17,5 @@ public class IndividualLessonResponse {
     private String tutorEmailAddress;
     private String studentFullName;
     private String studentEmailAddress;
+    private List<Long> filesIds;
 }

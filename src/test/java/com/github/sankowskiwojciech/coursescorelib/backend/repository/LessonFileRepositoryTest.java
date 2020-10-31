@@ -79,4 +79,16 @@ public class LessonFileRepositoryTest {
         assertNotNull(lessonFilesWithoutContent);
         assertFalse(lessonFilesWithoutContent.isEmpty());
     }
+
+    @Test
+    public void shouldGetFileOwnerCorrectly() {
+        //given
+        long lessonFileId = FILE_ID_STUB;
+
+        //when
+        String fileOwnerId = testee.getFileOwnerId(lessonFileId);
+
+        //then
+        assertEquals(TUTOR_EMAIL_ADDRESS_STUB, fileOwnerId);
+    }
 }
