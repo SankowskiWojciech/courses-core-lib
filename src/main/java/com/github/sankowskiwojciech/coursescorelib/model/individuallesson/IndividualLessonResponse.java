@@ -9,6 +9,7 @@ import java.util.List;
 @Builder
 @Getter
 public class IndividualLessonResponse {
+    private long lessonId;
     private String title;
     private LocalDateTime startDateOfLesson;
     private LocalDateTime endDateOfLesson;
