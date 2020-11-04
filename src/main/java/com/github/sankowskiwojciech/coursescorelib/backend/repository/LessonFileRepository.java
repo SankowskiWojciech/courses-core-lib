@@ -15,6 +15,8 @@ public interface LessonFileRepository extends JpaRepository<LessonFileEntity, Lo
 
     List<LessonFileWithoutContent> findAllByFileIdIn(Set<Long> fileIds);
 
+    List<LessonFileWithoutContent> findAllByCreatedBy(String fileOwnerId);
+
     @Query(value = "SELECT lessonFileEntity.createdBy FROM LessonFileEntity lessonFileEntity WHERE lessonFileEntity.fileId = :fileId")
     String getFileOwnerId(@Param("fileId") long fileId);
 }

@@ -83,6 +83,10 @@ insert into LESSON_FILE(NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME
 values ('Test file 2', 'doc', STRINGTOUTF8('Test file 2'), 'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
 insert into LESSON_FILE(NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
 values ('Test file 3', 'pptx', STRINGTOUTF8('Test Test Test Test Test'), 'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
+insert into LESSON_FILE(NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+values ('Not my file', 'pptx', STRINGTOUTF8('Test Test Test Test Test'), 'kaminski.bart@dancewithme.pl', '2020-09-18T18:00:00');
+insert into LESSON_FILE(NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+values ('Student file', 'pptx', STRINGTOUTF8('Test Test Test Test Test'), 'marcin.b@gmail.com', '2020-09-18T18:00:00');
 
 -- INDIVIDUAL_LESSON_FILE
 insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)

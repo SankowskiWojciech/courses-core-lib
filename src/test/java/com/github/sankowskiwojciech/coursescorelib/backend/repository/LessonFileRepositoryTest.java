@@ -28,6 +28,8 @@ import static org.junit.Assert.assertTrue;
 @DataJpaTest
 public class LessonFileRepositoryTest {
 
+    private static final int FIND_ALL_BY_CREATED_BY_EXPECTED_LIST_SIZE = 3;
+
     @Autowired
     private LessonFileRepository testee;
 
@@ -90,5 +92,19 @@ public class LessonFileRepositoryTest {
 
         //then
         assertEquals(TUTOR_EMAIL_ADDRESS_STUB, fileOwnerId);
+    }
+
+    @Test
+    public void shouldFindAllByCreatedByCorrectly() {
+        //given
+        String fileOwnerIdStub = TUTOR_EMAIL_ADDRESS_STUB;
+
+        //when
+        List<LessonFileWithoutContent> lessonFilesWithoutContent = testee.findAllByCreatedBy(fileOwnerIdStub);
+
+        //then
+        assertNotNull(lessonFilesWithoutContent);
+        assertFalse(lessonFilesWithoutContent.isEmpty());
+        assertEquals(FIND_ALL_BY_CREATED_BY_EXPECTED_LIST_SIZE, lessonFilesWithoutContent.size());
     }
 }
