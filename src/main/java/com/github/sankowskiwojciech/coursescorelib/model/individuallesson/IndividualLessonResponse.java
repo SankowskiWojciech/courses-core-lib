@@ -1,5 +1,6 @@
 package com.github.sankowskiwojciech.coursescorelib.model.individuallesson;
 
+import com.github.sankowskiwojciech.coursescorelib.model.lesson.LessonFileResponse;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -18,5 +19,5 @@ public class IndividualLessonResponse {
     private String tutorEmailAddress;
     private String studentFullName;
     private String studentEmailAddress;
-    private List<Long> filesIds;
+    private List<LessonFileResponse> filesInformation;
 }
