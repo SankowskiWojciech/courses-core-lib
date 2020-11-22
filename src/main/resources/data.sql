@@ -24,22 +24,35 @@ values ('adamjan@wp.pl', 'Adam', 'Janczewski');
 insert into STUDENT(EMAIL_ADDRESS, FIRST_NAME, LAST_NAME)
 values ('4rturz', 'Artur', 'Zdun');
 
+-- SUBDOMAIN
+insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
+values ('zslitnr1', 'ORGANIZATION');
+insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
+values ('wsankowski', 'TUTOR');
+insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
+values ('ssit', 'ORGANIZATION');
+insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
+values ('barkam', 'TUTOR');
 
 -- SUBDOMAIN USER ACCESSES
-insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_EMAIL_ADDRESS, USER_EMAIL_ADDRESS)
-values ('info@zslitnr1.pl', 'sankowski.wojciech@gmail.com');
-insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_EMAIL_ADDRESS, USER_EMAIL_ADDRESS)
-values ('sankowski.wojciech@gmail.com', 'sankowski.wojciech@gmail.com');
-insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_EMAIL_ADDRESS, USER_EMAIL_ADDRESS)
-values ('sankowski.wojciech@gmail.com', 'marcin.b@gmail.com');
-insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_EMAIL_ADDRESS, USER_EMAIL_ADDRESS)
-values ('info@zslitnr1.pl', 'marcin.b@gmail.com');
-insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_EMAIL_ADDRESS, USER_EMAIL_ADDRESS)
-values ('not.spam@dancewithme.pl', 'marcin.b@gmail.com');
-insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_EMAIL_ADDRESS, USER_EMAIL_ADDRESS)
-values ('not.spam@dancewithme.pl', 'kaminski.bart@dancewithme.pl');
-insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_EMAIL_ADDRESS, USER_EMAIL_ADDRESS)
-values ('sankowski.wojciech@gmail.com', 'rawskaka@gmail.com');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('zslitnr1', 'sankowski.wojciech@gmail.com');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('wsankowski', 'sankowski.wojciech@gmail.com');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('wsankowski', 'marcin.b@gmail.com');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('zslitnr1', 'marcin.b@gmail.com');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('ssit', 'marcin.b@gmail.com');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('ssit', 'kaminski.bart@dancewithme.pl');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('wsankowski', 'rawskaka@gmail.com');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('zslitnr1', 'adamjan@wp.pl');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('zslitnr1', '4rturz@gmail.com');
 
 -- LOGIN_CREDENTIALS
 -- password: Test1
