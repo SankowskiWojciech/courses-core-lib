@@ -2,6 +2,7 @@ package com.github.sankowskiwojciech.coursescorelib.service.subdomain.transforme
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.Subdomain;
+import com.github.sankowskiwojciech.coursescorelib.model.subdomain.SubdomainType;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -21,6 +22,7 @@ public class OrganizationEntityToSubdomain implements Function<OrganizationEntit
                 .emailAddress(organizationEntity.getEmailAddress())
                 .phoneNumber(organizationEntity.getPhoneNumber())
                 .websiteUrl(organizationEntity.getWebsiteUrl())
+                .subdomainType(SubdomainType.ORGANIZATION)
                 .build();
     }
 

@@ -28,6 +28,7 @@ import java.util.UUID;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.ORGANIZATION_ALIAS_STUB;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_ALIAS_STUB;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -129,12 +130,21 @@ public class SubdomainServiceImplTest {
         String userEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
         Set<SubdomainUserAccessEntity> subdomainUserAccessEntities = Sets.newHashSet(SubdomainUserAccessEntityStub.create(subdomainAliasStub, userEmailAddressStub));
         SubdomainEntity subdomainEntityStub = SubdomainEntityStub.create(subdomainAliasStub, SubdomainType.ORGANIZATION, subdomainUserAccessEntities);
+        OrganizationEntity organizationEntityStub = OrganizationEntityStub.create();
+
         when(subdomainRepositoryMock.findById(eq(subdomainAliasStub))).thenReturn(Optional.of(subdomainEntityStub));
+        when(organizationRepositoryMock.findByAlias(eq(subdomainAliasStub))).thenReturn(Optional.of(organizationEntityStub));
 
         //when
-        testee.validateIfUserIsAllowedToLoginToSubdomain(subdomainAliasStub, userEmailAddressStub);
+        Subdomain subdomain = testee.validateIfUserIsAllowedToLoginToSubdomain(subdomainAliasStub, userEmailAddressStub);
 
         //then nothing happens
         verify(subdomainRepositoryMock).findById(eq(subdomainAliasStub));
+        verify(organizationRepositoryMock).findByAlias(eq(subdomainAliasStub));
+
+        assertNotNull(subdomain);
+        assertEquals(subdomainAliasStub, subdomain.getAlias());
+        assertEquals(SubdomainType.ORGANIZATION, subdomain.getSubdomainType());
+        assertEquals(organizationEntityStub.getEmailAddress(), subdomain.getEmailAddress());
     }
 }

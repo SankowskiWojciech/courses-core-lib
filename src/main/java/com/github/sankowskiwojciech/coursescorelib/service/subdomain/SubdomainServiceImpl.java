@@ -31,22 +31,17 @@ public class SubdomainServiceImpl implements SubdomainService {
     @Override
     public Subdomain readSubdomainInformation(String subdomainAlias) {
         SubdomainEntity subdomainEntity = readSubdomainEntity(subdomainAlias);
-        if (SubdomainType.ORGANIZATION.equals(subdomainEntity.getSubdomainType())) {
-            Optional<OrganizationEntity> organizationEntityOptional = organizationRepository.findByAlias(subdomainAlias);
-            return OrganizationEntityToSubdomain.getInstance().apply(organizationEntityOptional.get());
-        } else {
-            Optional<TutorEntity> tutorEntityOptional = tutorRepository.findByAlias(subdomainAlias);
-            return TutorEntityToSubdomain.getInstance().apply(tutorEntityOptional.get());
-        }
+        return readSubdomainInformation(subdomainEntity);
     }
 
     @Override
-    public void validateIfUserIsAllowedToLoginToSubdomain(String subdomainAlias, String userEmailAddress) {
+    public Subdomain validateIfUserIsAllowedToLoginToSubdomain(String subdomainAlias, String userEmailAddress) {
         SubdomainEntity subdomainEntity = readSubdomainEntity(subdomainAlias);
         Set<SubdomainUserAccessEntity> subdomainUserAccessEntities = subdomainEntity.getSubdomainUserAccessEntities();
         if (subdomainUserAccessEntities.stream().noneMatch(subdomainUserAccessEntity -> userEmailAddress.equals(subdomainUserAccessEntity.getSubdomainUserAccessEntityId().getUserEmailAddress()))) {
             throw new UserNotAllowedToAccessSubdomainException();
         }
+        return readSubdomainInformation(subdomainEntity);
     }
 
     private SubdomainEntity readSubdomainEntity(String subdomainAlias) {
@@ -54,5 +49,15 @@ public class SubdomainServiceImpl implements SubdomainService {
             throw new SubdomainNotFoundException();
         }
         return subdomainRepository.findById(subdomainAlias).orElseThrow(SubdomainNotFoundException::new);
+    }
+
+    private Subdomain readSubdomainInformation(SubdomainEntity subdomainEntity) {
+        if (SubdomainType.ORGANIZATION.equals(subdomainEntity.getSubdomainType())) {
+            Optional<OrganizationEntity> organizationEntityOptional = organizationRepository.findByAlias(subdomainEntity.getSubdomainId());
+            return OrganizationEntityToSubdomain.getInstance().apply(organizationEntityOptional.get());
+        } else {
+            Optional<TutorEntity> tutorEntityOptional = tutorRepository.findByAlias(subdomainEntity.getSubdomainId());
+            return TutorEntityToSubdomain.getInstance().apply(tutorEntityOptional.get());
+        }
     }
 }

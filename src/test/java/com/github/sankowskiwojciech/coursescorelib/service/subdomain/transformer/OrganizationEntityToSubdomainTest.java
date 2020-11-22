@@ -2,6 +2,7 @@ package com.github.sankowskiwojciech.coursescorelib.service.subdomain.transforme
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.Subdomain;
+import com.github.sankowskiwojciech.coursescorelib.model.subdomain.SubdomainType;
 import com.github.sankowskiwojciech.coursescorelib.stub.OrganizationEntityStub;
 import org.junit.Test;
 
@@ -28,5 +29,6 @@ public class OrganizationEntityToSubdomainTest {
         assertEquals(organizationEntityStub.getEmailAddress(), subdomain.getEmailAddress());
         assertEquals(organizationEntityStub.getPhoneNumber(), subdomain.getPhoneNumber());
         assertEquals(organizationEntityStub.getWebsiteUrl(), subdomain.getWebsiteUrl());
+        assertEquals(SubdomainType.ORGANIZATION, subdomain.getSubdomainType());
     }
 }
