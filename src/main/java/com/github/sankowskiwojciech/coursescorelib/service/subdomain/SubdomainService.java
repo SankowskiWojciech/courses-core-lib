@@ -6,5 +6,5 @@ public interface SubdomainService {
 
     Subdomain readSubdomainInformation(String subdomainAlias);
 
-    Subdomain validateIfUserIsAllowedToLoginToSubdomain(String subdomainAlias, String userEmailAddress);
+    Subdomain validateIfUserIsAllowedToLoginToSubdomain(String subdomainAlias, String... userEmailAddresses);
 }

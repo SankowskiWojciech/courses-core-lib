@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Optional;
 import java.util.Set;
 
@@ -35,12 +36,14 @@ public class SubdomainServiceImpl implements SubdomainService {
     }
 
     @Override
-    public Subdomain validateIfUserIsAllowedToLoginToSubdomain(String subdomainAlias, String userEmailAddress) {
+    public Subdomain validateIfUserIsAllowedToLoginToSubdomain(String subdomainAlias, String... userEmailAddresses) {
         SubdomainEntity subdomainEntity = readSubdomainEntity(subdomainAlias);
         Set<SubdomainUserAccessEntity> subdomainUserAccessEntities = subdomainEntity.getSubdomainUserAccessEntities();
-        if (subdomainUserAccessEntities.stream().noneMatch(subdomainUserAccessEntity -> userEmailAddress.equals(subdomainUserAccessEntity.getSubdomainUserAccessEntityId().getUserEmailAddress()))) {
-            throw new UserNotAllowedToAccessSubdomainException();
-        }
+        Arrays.asList(userEmailAddresses).forEach(userEmailAddress -> {
+            if (subdomainUserAccessEntities.stream().noneMatch(subdomainUserAccessEntity -> userEmailAddress.equals(subdomainUserAccessEntity.getSubdomainUserAccessEntityId().getUserEmailAddress()))) {
+                throw new UserNotAllowedToAccessSubdomainException();
+            }
+        });
         return readSubdomainInformation(subdomainEntity);
     }
 
