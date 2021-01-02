@@ -6,6 +6,6 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class LoginCredentials {
-    private String userEmailAddress;
-    private String password;
+    private final String userEmailAddress;
+    private final String password;
 }

@@ -8,6 +8,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 public class LessonDates {
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private final LocalDateTime startDate;
+    private final LocalDateTime endDate;
 }

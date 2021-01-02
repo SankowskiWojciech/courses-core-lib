@@ -9,7 +9,7 @@ import java.time.LocalTime;
 @Getter
 @Builder
 public class DayOfWeekWithTimes {
-    private DayOfWeek dayOfWeek;
-    private LocalTime startTime;
-    private LocalTime endTime;
+    private final DayOfWeek dayOfWeek;
+    private final LocalTime startTime;
+    private final LocalTime endTime;
 }

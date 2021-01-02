@@ -6,11 +6,11 @@ import lombok.Getter;
 @Builder
 @Getter
 public class Subdomain {
-    private String name;
-    private String alias;
-    private String description;
-    private String emailAddress;
-    private String phoneNumber;
-    private String websiteUrl;
-    private SubdomainType subdomainType;
+    private final String name;
+    private final String alias;
+    private final String description;
+    private final String emailAddress;
+    private final String phoneNumber;
+    private final String websiteUrl;
+    private final SubdomainType subdomainType;
 }

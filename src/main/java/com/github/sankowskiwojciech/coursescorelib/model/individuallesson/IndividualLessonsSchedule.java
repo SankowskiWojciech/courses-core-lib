@@ -14,13 +14,13 @@ import java.util.List;
 @Builder
 @Getter
 public class IndividualLessonsSchedule {
-    private LocalDate beginningDate;
-    private LocalDate endDate;
-    private ScheduleType scheduleType;
-    private Long allLessonsDurationInMinutes;
-    private List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes;
-    private List<String> lessonsTitles;
-    private OrganizationEntity organizationEntity;
-    private TutorEntity tutorEntity;
-    private StudentEntity studentEntity;
+    private final LocalDate beginningDate;
+    private final LocalDate endDate;
+    private final ScheduleType scheduleType;
+    private final Long allLessonsDurationInMinutes;
+    private final List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes;
+    private final List<String> lessonsTitles;
+    private final OrganizationEntity organizationEntity;
+    private final TutorEntity tutorEntity;
+    private final StudentEntity studentEntity;
 }

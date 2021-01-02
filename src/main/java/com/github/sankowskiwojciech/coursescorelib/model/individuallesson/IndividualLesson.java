@@ -12,12 +12,12 @@ import java.util.List;
 @Builder
 @Getter
 public class IndividualLesson {
-    private String title;
-    private LocalDateTime startDateOfLesson;
-    private LocalDateTime endDateOfLesson;
-    private String description;
-    private OrganizationEntity organizationEntity;
-    private TutorEntity tutorEntity;
-    private StudentEntity studentEntity;
-    private List<Long> filesIds;
+    private final String title;
+    private final LocalDateTime startDateOfLesson;
+    private final LocalDateTime endDateOfLesson;
+    private final String description;
+    private final OrganizationEntity organizationEntity;
+    private final TutorEntity tutorEntity;
+    private final StudentEntity studentEntity;
+    private final List<Long> filesIds;
 }

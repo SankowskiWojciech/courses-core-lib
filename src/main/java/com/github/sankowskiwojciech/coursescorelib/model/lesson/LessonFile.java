@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class LessonFile {
-    private long fileId;
-    private String name;
-    private String extension;
-    private byte[] content;
-    private String createdBy;
-    private LocalDateTime creationDateTime;
+    private final long fileId;
+    private final String name;
+    private final String extension;
+    private final byte[] content;
+    private final String createdBy;
+    private final LocalDateTime creationDateTime;
 }

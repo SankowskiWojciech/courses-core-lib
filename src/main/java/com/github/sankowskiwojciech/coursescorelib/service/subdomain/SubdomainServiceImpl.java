@@ -14,7 +14,6 @@ import com.github.sankowskiwojciech.coursescorelib.model.subdomain.SubdomainType
 import com.github.sankowskiwojciech.coursescorelib.service.subdomain.transformer.OrganizationEntityToSubdomain;
 import com.github.sankowskiwojciech.coursescorelib.service.subdomain.transformer.TutorEntityToSubdomain;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -48,7 +47,7 @@ public class SubdomainServiceImpl implements SubdomainService {
     }
 
     private SubdomainEntity readSubdomainEntity(String subdomainAlias) {
-        if (StringUtils.isBlank(subdomainAlias)) {
+        if (subdomainAlias == null || subdomainAlias.isBlank()) {
             throw new SubdomainNotFoundException();
         }
         return subdomainRepository.findById(subdomainAlias).orElseThrow(SubdomainNotFoundException::new);

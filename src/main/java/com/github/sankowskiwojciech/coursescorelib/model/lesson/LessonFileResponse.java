@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class LessonFileResponse {
-    private long fileId;
-    private String name;
-    private String extension;
-    private String createdBy;
-    private LocalDateTime creationDateTime;
+    private final long fileId;
+    private final String name;
+    private final String extension;
+    private final String createdBy;
+    private final LocalDateTime creationDateTime;
 }

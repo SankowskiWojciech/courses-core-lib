@@ -10,14 +10,14 @@ import java.util.List;
 @Builder
 @Getter
 public class IndividualLessonResponse {
-    private long lessonId;
-    private String title;
-    private LocalDateTime startDateOfLesson;
-    private LocalDateTime endDateOfLesson;
-    private String description;
-    private String subdomainName;
-    private String tutorEmailAddress;
-    private String studentFullName;
-    private String studentEmailAddress;
-    private List<LessonFileResponse> filesInformation;
+    private final long lessonId;
+    private final String title;
+    private final LocalDateTime startDateOfLesson;
+    private final LocalDateTime endDateOfLesson;
+    private final String description;
+    private final String subdomainName;
+    private final String tutorEmailAddress;
+    private final String studentFullName;
+    private final String studentEmailAddress;
+    private final List<LessonFileResponse> filesInformation;
 }

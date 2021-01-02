@@ -6,6 +6,6 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class StudentResponse {
-    private String fullName;
-    private String emailAddress;
+    private final String fullName;
+    private final String emailAddress;
 }

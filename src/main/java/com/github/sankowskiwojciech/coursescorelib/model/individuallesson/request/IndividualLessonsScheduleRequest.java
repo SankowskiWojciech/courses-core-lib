@@ -11,13 +11,13 @@ import java.util.List;
 @Getter
 @Builder
 public class IndividualLessonsScheduleRequest {
-    private LocalDate beginningDate;
-    private LocalDate endDate;
-    private ScheduleType scheduleType;
-    private Long allLessonsDurationInMinutes;
-    private List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes;
-    private List<String> lessonsTitles;
-    private String subdomainName;
-    private String tutorId;
-    private String studentId;
+    private final LocalDate beginningDate;
+    private final LocalDate endDate;
+    private final ScheduleType scheduleType;
+    private final Long allLessonsDurationInMinutes;
+    private final List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes;
+    private final List<String> lessonsTitles;
+    private final String subdomainName;
+    private final String tutorId;
+    private final String studentId;
 }

@@ -9,12 +9,12 @@ import java.util.List;
 @Builder
 @Getter
 public class IndividualLessonRequest {
-    private String title;
-    private LocalDateTime startDateOfLesson;
-    private LocalDateTime endDateOfLesson;
-    private String description;
-    private String subdomainName;
-    private String tutorId;
-    private String studentId;
-    private List<Long> filesIds;
+    private final String title;
+    private final LocalDateTime startDateOfLesson;
+    private final LocalDateTime endDateOfLesson;
+    private final String description;
+    private final String subdomainName;
+    private final String tutorId;
+    private final String studentId;
+    private final List<Long> filesIds;
 }

@@ -15,7 +15,6 @@ import com.github.sankowskiwojciech.coursescorelib.stub.OrganizationEntityStub;
 import com.github.sankowskiwojciech.coursescorelib.stub.SubdomainEntityStub;
 import com.github.sankowskiwojciech.coursescorelib.stub.SubdomainUserAccessEntityStub;
 import com.github.sankowskiwojciech.coursescorelib.stub.TutorEntityStub;
-import com.google.common.collect.Sets;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -128,7 +127,7 @@ public class SubdomainServiceImplTest {
         //given
         String subdomainAliasStub = ORGANIZATION_ALIAS_STUB;
         String userEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
-        Set<SubdomainUserAccessEntity> subdomainUserAccessEntities = Sets.newHashSet(SubdomainUserAccessEntityStub.create(subdomainAliasStub, userEmailAddressStub));
+        Set<SubdomainUserAccessEntity> subdomainUserAccessEntities = Set.of(SubdomainUserAccessEntityStub.create(subdomainAliasStub, userEmailAddressStub));
         SubdomainEntity subdomainEntityStub = SubdomainEntityStub.create(subdomainAliasStub, SubdomainType.ORGANIZATION, subdomainUserAccessEntities);
         OrganizationEntity organizationEntityStub = OrganizationEntityStub.create();
 

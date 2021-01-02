@@ -3,7 +3,6 @@ package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 import com.github.sankowskiwojciech.coursescorelib.model.db.lessonfile.LessonFileEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.lessonfile.LessonFileWithoutContent;
 import com.github.sankowskiwojciech.coursescorelib.stub.LessonFileEntityStub;
-import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +71,7 @@ public class LessonFileRepositoryTest {
     @Test
     public void shouldFindAllEntitiesWithoutFileContentByFileIdsCorrectly() {
         //given
-        Set<Long> fileIdsStub = Sets.newHashSet(1L, 2L, 3L);
+        Set<Long> fileIdsStub = Set.of(1L, 2L, 3L);
 
         //when
         List<LessonFileWithoutContent> lessonFilesWithoutContent = testee.findAllByFileIdIn(fileIdsStub);
