@@ -1,4 +1,4 @@
-package com.github.sankowskiwojciech.coursescorelib.model.individuallesson.request;
+package com.github.sankowskiwojciech.coursescorelib.model.lesson.request;
 
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.Subdomain;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @Getter
-public class IndividualLessonRequestParams {
+public class LessonRequestParams {
     private final Subdomain subdomain;
     private final LocalDateTime fromDateTime;
     private final LocalDateTime toDateTime;

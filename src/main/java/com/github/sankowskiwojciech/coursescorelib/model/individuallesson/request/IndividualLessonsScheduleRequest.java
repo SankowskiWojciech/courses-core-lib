@@ -2,22 +2,18 @@ package com.github.sankowskiwojciech.coursescorelib.model.individuallesson.reque
 
 import com.github.sankowskiwojciech.coursescorelib.model.lesson.DayOfWeekWithTimes;
 import com.github.sankowskiwojciech.coursescorelib.model.lesson.ScheduleType;
-import lombok.Builder;
+import com.github.sankowskiwojciech.coursescorelib.model.lesson.request.LessonsScheduleRequest;
 import lombok.Getter;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Getter
-@Builder
-public class IndividualLessonsScheduleRequest {
-    private LocalDate beginningDate;
-    private LocalDate endDate;
-    private ScheduleType scheduleType;
-    private Long allLessonsDurationInMinutes;
-    private List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes;
-    private List<String> lessonsTitles;
-    private String subdomainName;
-    private String tutorId;
-    private String studentId;
+public class IndividualLessonsScheduleRequest extends LessonsScheduleRequest {
+    private final String studentId;
+
+    public IndividualLessonsScheduleRequest(LocalDate beginningDate, LocalDate endDate, ScheduleType scheduleType, Long allLessonsDurationInMinutes, List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes, List<String> lessonsTitles, String subdomainAlias, String tutorId, String studentId) {
+        super(beginningDate, endDate, scheduleType, allLessonsDurationInMinutes, lessonsDaysOfWeekWithTimes, lessonsTitles, subdomainAlias, tutorId);
+        this.studentId = studentId;
+    }
 }

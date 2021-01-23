@@ -1,20 +1,17 @@
 package com.github.sankowskiwojciech.coursescorelib.model.individuallesson.request;
 
-import lombok.Builder;
+import com.github.sankowskiwojciech.coursescorelib.model.lesson.request.LessonRequest;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Builder
 @Getter
-public class IndividualLessonRequest {
-    private String title;
-    private LocalDateTime startDateOfLesson;
-    private LocalDateTime endDateOfLesson;
-    private String description;
-    private String subdomainName;
-    private String tutorId;
-    private String studentId;
-    private List<Long> filesIds;
+public class IndividualLessonRequest extends LessonRequest {
+    private final String studentId;
+
+    public IndividualLessonRequest(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainAlias, String tutorId, List<Long> filesIds, String studentId) {
+        super(title, startDateOfLesson, endDateOfLesson, description, subdomainAlias, tutorId, filesIds);
+        this.studentId = studentId;
+    }
 }
