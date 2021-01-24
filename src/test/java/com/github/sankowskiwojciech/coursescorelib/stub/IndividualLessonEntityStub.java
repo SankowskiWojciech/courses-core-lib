@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.INDIVIDUAL_LESSON_ID_STUB;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.LESSON_DESCRIPTION_STUB;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.LESSON_TITLE_STUB;
 
@@ -19,7 +18,6 @@ public class IndividualLessonEntityStub {
     public static IndividualLessonEntity createWithExternalEntities(OrganizationEntity organizationEntity, TutorEntity tutorEntity, StudentEntity studentEntity) {
         final LocalDateTime currentDateTime = LocalDateTime.now();
         return IndividualLessonEntity.builder()
-                .lessonId(INDIVIDUAL_LESSON_ID_STUB)
                 .title(LESSON_TITLE_STUB)
                 .startDateOfLesson(currentDateTime.plusHours(1))
                 .endDateOfLesson(currentDateTime.plusHours(3))
@@ -34,7 +32,6 @@ public class IndividualLessonEntityStub {
     public static IndividualLessonEntity createWithDatesOfLesson(LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson) {
         final LocalDateTime currentDateTime = LocalDateTime.now();
         return IndividualLessonEntity.builder()
-                .lessonId(INDIVIDUAL_LESSON_ID_STUB)
                 .title(LESSON_TITLE_STUB)
                 .startDateOfLesson(startDateOfLesson)
                 .endDateOfLesson(endDateOfLesson)

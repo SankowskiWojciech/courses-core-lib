@@ -24,19 +24,19 @@ public interface DefaultTestValues {
     String STUDENT_EMAIL_ADDRESS_STUB = "marcin.b@gmail.com";
 
     //token
-    String TOKEN_VALUE_STUB = "tokenValueStub";
+    String TOKEN_VALUE_STUB = "tokenIsValid";
     String RSA_PUBLIC_KEY_STUB = "rsaPublicKey";
 
     //parent
     String PARENT_EMAIL_ADDRESS_STUB = "kbac@gmail.com";
 
     //lesson
-    long INDIVIDUAL_LESSON_ID_STUB = 1;
+    String INDIVIDUAL_LESSON_ID_STUB = "f0604742-8031-4d8a-b6e4-a9d7faaaaba3";
     String LESSON_TITLE_STUB = "Tytul lekcji.";
     String LESSON_DESCRIPTION_STUB = "Opis lekcji.";
 
     //file
-    long FILE_ID_STUB = 1;
+    String FILE_ID_STUB = "65462773-84dc-4738-816b-d044409498bf";
     String FILE_NAME_STUB = "Test file 1";
     String FILE_EXTENSION_STUB = "txt";
     byte[] FILE_CONTENT_STUB = "This is a test file!".getBytes();

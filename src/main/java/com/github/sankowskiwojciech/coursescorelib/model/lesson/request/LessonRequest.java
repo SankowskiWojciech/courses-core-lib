@@ -13,9 +13,9 @@ public abstract class LessonRequest {
     private final String description;
     private final String subdomainAlias;
     private final String tutorId;
-    private final List<Long> filesIds;
+    private final List<String> filesIds;
 
-    public LessonRequest(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainAlias, String tutorId, List<Long> filesIds) {
+    public LessonRequest(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainAlias, String tutorId, List<String> filesIds) {
         this.title = title;
         this.startDateOfLesson = startDateOfLesson;
         this.endDateOfLesson = endDateOfLesson;

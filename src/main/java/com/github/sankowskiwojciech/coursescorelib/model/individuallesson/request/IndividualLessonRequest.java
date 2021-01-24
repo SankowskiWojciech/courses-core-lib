@@ -10,7 +10,7 @@ import java.util.List;
 public class IndividualLessonRequest extends LessonRequest {
     private final String studentId;
 
-    public IndividualLessonRequest(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainAlias, String tutorId, List<Long> filesIds, String studentId) {
+    public IndividualLessonRequest(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainAlias, String tutorId, List<String> filesIds, String studentId) {
         super(title, startDateOfLesson, endDateOfLesson, description, subdomainAlias, tutorId, filesIds);
         this.studentId = studentId;
     }

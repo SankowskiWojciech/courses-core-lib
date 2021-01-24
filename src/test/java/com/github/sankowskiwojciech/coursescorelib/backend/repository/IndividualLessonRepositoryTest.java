@@ -4,10 +4,7 @@ import com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson.Ind
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.student.StudentEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.tutor.TutorEntity;
-import com.github.sankowskiwojciech.coursescorelib.stub.IndividualLessonEntityStub;
-import com.github.sankowskiwojciech.coursescorelib.stub.OrganizationEntityStub;
-import com.github.sankowskiwojciech.coursescorelib.stub.StudentEntityStub;
-import com.github.sankowskiwojciech.coursescorelib.stub.TutorEntityStub;
+import com.github.sankowskiwojciech.coursescorelib.stub.*;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,14 +17,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.INDIVIDUAL_LESSON_ID_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.ORGANIZATION_EMAIL_ADDRESS_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.STUDENT_EMAIL_ADDRESS_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.*;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -50,7 +41,7 @@ public class IndividualLessonRepositoryTest {
     @Test
     public void shouldFindEntityByIdCorrectly() {
         //given
-        long individualLessonIdStub = INDIVIDUAL_LESSON_ID_STUB;
+        String individualLessonIdStub = INDIVIDUAL_LESSON_ID_STUB;
         String organizationEmailAddressStub = ORGANIZATION_EMAIL_ADDRESS_STUB;
         String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
         String studentEmailAddressStub = STUDENT_EMAIL_ADDRESS_STUB;
@@ -142,7 +133,7 @@ public class IndividualLessonRepositoryTest {
     public void shouldFindAllEntitiesByTutorIdAndLessonsIdsCorrectly() {
         //given
         String tutorIdStub = TUTOR_EMAIL_ADDRESS_STUB;
-        List<Long> lessonsIdsStub = Lists.newArrayList(1L, 4L, 5L, 7L);
+        List<String> lessonsIdsStub = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "93ec0365-1c31-4fb3-b90b-b92d89ea8cfa", "21809b9c-1cf6-482f-a67f-6283c23a85f8", "f88ec986-e473-48d2-85fe-1eecaa39f10a");
 
         //when
         List<IndividualLessonEntity> individualLessonEntities = testee.findAllByUserIdAndLessonsIds(tutorIdStub, lessonsIdsStub);
@@ -155,7 +146,7 @@ public class IndividualLessonRepositoryTest {
     public void shouldFindAllEntitiesByStudentIdAndLessonsIdsCorrectly() {
         //given
         String studentIdStub = STUDENT_EMAIL_ADDRESS_STUB;
-        List<Long> lessonsIdsStub = Lists.newArrayList(1L, 4L, 5L, 7L);
+        List<String> lessonsIdsStub = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "93ec0365-1c31-4fb3-b90b-b92d89ea8cfa", "21809b9c-1cf6-482f-a67f-6283c23a85f8", "f88ec986-e473-48d2-85fe-1eecaa39f10a");
 
         //when
         List<IndividualLessonEntity> individualLessonEntities = testee.findAllByUserIdAndLessonsIds(studentIdStub, lessonsIdsStub);

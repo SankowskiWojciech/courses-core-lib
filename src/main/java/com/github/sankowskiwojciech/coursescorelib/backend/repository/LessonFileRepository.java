@@ -11,12 +11,12 @@ import java.util.List;
 import java.util.Set;
 
 @Repository
-public interface LessonFileRepository extends JpaRepository<LessonFileEntity, Long> {
+public interface LessonFileRepository extends JpaRepository<LessonFileEntity, String> {
 
-    List<LessonFileWithoutContent> findAllByFileIdIn(Set<Long> fileIds);
+    List<LessonFileWithoutContent> findAllByFileIdIn(Set<String> fileIds);
 
     List<LessonFileWithoutContent> findAllByCreatedBy(String fileOwnerId);
 
     @Query(value = "SELECT lessonFileEntity.createdBy FROM LessonFileEntity lessonFileEntity WHERE lessonFileEntity.fileId = :fileId")
-    String getFileOwnerId(@Param("fileId") long fileId);
+    String getFileOwnerId(@Param("fileId") String fileId);
 }

@@ -3,21 +3,10 @@ package com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson;
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.student.StudentEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.tutor.TutorEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -30,9 +19,10 @@ import java.time.LocalDateTime;
 public class IndividualLessonEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "LESSON_ID", unique = true, nullable = false, updatable = false)
-    private long lessonId;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "LESSON_ID", length = 36, unique = true, nullable = false, updatable = false)
+    private String lessonId;
 
     @Column(name = "TITLE", length = 50, nullable = false)
     private String title;
@@ -58,7 +48,7 @@ public class IndividualLessonEntity {
     @JoinColumn(name = "STUDENT_ID", nullable = false)
     private StudentEntity studentEntity;
 
-    @Column(name = "CREATION_DATE_TIME", nullable = false)
+    @Column(name = "CREATION_DATE_TIME", nullable = false, updatable = false)
     private LocalDateTime creationDateTime;
 
     @Column(name = "MODIFICATION_DATE_TIME")

@@ -1,16 +1,8 @@
 package com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @AllArgsConstructor
@@ -23,10 +15,10 @@ import javax.persistence.Table;
 public class IndividualLessonFileEntity {
 
     @Id
-    @Column(name = "LESSON_ID", nullable = false, updatable = false)
-    private long lessonId;
+    @Column(name = "LESSON_ID", length = 36, nullable = false, updatable = false)
+    private String lessonId;
 
     @Id
-    @Column(name = "FILE_ID", nullable = false, updatable = false)
-    private long fileId;
+    @Column(name = "FILE_ID", length = 36, nullable = false, updatable = false)
+    private String fileId;
 }

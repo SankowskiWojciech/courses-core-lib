@@ -10,9 +10,9 @@ import java.util.List;
 @Repository
 public interface IndividualLessonFileRepository extends JpaRepository<IndividualLessonFileEntity, IndividualLessonFileEntityId> {
 
-    List<IndividualLessonFileEntity> findAllByLessonId(long lessonId);
+    List<IndividualLessonFileEntity> findAllByLessonId(String lessonId);
 
-    List<IndividualLessonFileEntity> findAllByFileId(long fileId);
+    List<IndividualLessonFileEntity> findAllByFileId(String fileId);
 
-    List<IndividualLessonFileEntity> findAllByLessonIdIn(List<Long> lessonsIds);
+    List<IndividualLessonFileEntity> findAllByLessonIdIn(List<String> lessonsIds);
 }

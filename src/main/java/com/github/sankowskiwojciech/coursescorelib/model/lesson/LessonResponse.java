@@ -7,7 +7,7 @@ import java.util.List;
 
 @Getter
 public abstract class LessonResponse {
-    private final long lessonId;
+    private final String lessonId;
     private final String title;
     private final LocalDateTime startDateOfLesson;
     private final LocalDateTime endDateOfLesson;
@@ -16,7 +16,7 @@ public abstract class LessonResponse {
     private final String tutorEmailAddress;
     private final List<LessonFileResponse> filesInformation;
 
-    public LessonResponse(long lessonId, String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainName, String tutorEmailAddress, List<LessonFileResponse> filesInformation) {
+    public LessonResponse(String lessonId, String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainName, String tutorEmailAddress, List<LessonFileResponse> filesInformation) {
         this.lessonId = lessonId;
         this.title = title;
         this.startDateOfLesson = startDateOfLesson;

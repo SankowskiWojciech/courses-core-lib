@@ -6,9 +6,9 @@ import java.time.LocalDateTime;
 
 @Value
 public class LessonFileWithoutContent {
-    private long fileId;
-    private String name;
-    private String extension;
-    private String createdBy;
-    private LocalDateTime creationDateTime;
+    String fileId;
+    String name;
+    String extension;
+    String createdBy;
+    LocalDateTime creationDateTime;
 }

@@ -1,17 +1,9 @@
 package com.github.sankowskiwojciech.coursescorelib.model.db.lessonfile;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -24,9 +16,10 @@ import java.time.LocalDateTime;
 public class LessonFileEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "FILE_ID", unique = true, nullable = false, updatable = false)
-    private long fileId;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "FILE_ID", length = 36, unique = true, nullable = false, updatable = false)
+    private String fileId;
 
     @Column(name = "NAME", length = 50, nullable = false, updatable = false)
     private String name;

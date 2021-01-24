@@ -13,7 +13,7 @@ import java.util.List;
 public class IndividualLesson extends Lesson {
     private final StudentEntity studentEntity;
 
-    public IndividualLesson(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, OrganizationEntity organizationEntity, TutorEntity tutorEntity, List<Long> filesIds, StudentEntity studentEntity) {
+    public IndividualLesson(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, OrganizationEntity organizationEntity, TutorEntity tutorEntity, List<String> filesIds, StudentEntity studentEntity) {
         super(title, startDateOfLesson, endDateOfLesson, description, organizationEntity, tutorEntity, filesIds);
         this.studentEntity = studentEntity;
     }

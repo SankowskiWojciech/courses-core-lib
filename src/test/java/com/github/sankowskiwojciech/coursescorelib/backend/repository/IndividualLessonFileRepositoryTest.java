@@ -15,10 +15,7 @@ import java.util.Optional;
 
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_ID_STUB;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.INDIVIDUAL_LESSON_ID_STUB;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -44,8 +41,8 @@ public class IndividualLessonFileRepositoryTest {
     @Test
     public void shouldFindEntityByIdCorrectly() {
         //given
-        long lessonId = INDIVIDUAL_LESSON_ID_STUB;
-        long fileId = FILE_ID_STUB;
+        String lessonId = INDIVIDUAL_LESSON_ID_STUB;
+        String fileId = FILE_ID_STUB;
 
         //when
         Optional<IndividualLessonFileEntity> foundIndividualLessonFileEntityOptional = testee.findById(new IndividualLessonFileEntityId(lessonId, fileId));
@@ -61,7 +58,7 @@ public class IndividualLessonFileRepositoryTest {
     @Test
     public void shouldFindAllEntitiesByLessonIdCorrectly() {
         //given
-        long lessonIdStub = INDIVIDUAL_LESSON_ID_STUB;
+        String lessonIdStub = INDIVIDUAL_LESSON_ID_STUB;
 
         //when
         List<IndividualLessonFileEntity> individualLessonFileEntities = testee.findAllByLessonId(lessonIdStub);
@@ -74,7 +71,7 @@ public class IndividualLessonFileRepositoryTest {
     @Test
     public void shouldFindAllEntitiesByFileIdCorrectly() {
         //given
-        long fileIdStub = FILE_ID_STUB;
+        String fileIdStub = FILE_ID_STUB;
 
         //when
         List<IndividualLessonFileEntity> individualLessonFileEntities = testee.findAllByFileId(fileIdStub);
@@ -87,7 +84,7 @@ public class IndividualLessonFileRepositoryTest {
     @Test
     public void shouldFindAllEntitiesByLessonIdFromListCorrectly() {
         //given
-        List<Long> lessonsIdsStub = Lists.newArrayList(1L, 2L);
+        List<String> lessonsIdsStub = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "7d0ae6d0-7da0-4a36-9876-ee8881b9ceae");
 
         //when
         List<IndividualLessonFileEntity> individualLessonFileEntities = testee.findAllByLessonIdIn(lessonsIdsStub);

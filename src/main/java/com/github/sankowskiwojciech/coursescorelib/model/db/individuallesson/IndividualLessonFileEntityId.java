@@ -1,8 +1,6 @@
 package com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -10,6 +8,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class IndividualLessonFileEntityId implements Serializable {
-    private long lessonId;
-    private long fileId;
+    private String lessonId;
+    private String fileId;
 }

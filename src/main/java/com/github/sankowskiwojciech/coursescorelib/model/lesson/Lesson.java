@@ -15,9 +15,9 @@ public abstract class Lesson {
     private final String description;
     private final OrganizationEntity organizationEntity;
     private final TutorEntity tutorEntity;
-    private final List<Long> filesIds;
+    private final List<String> filesIds;
 
-    public Lesson(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, OrganizationEntity organizationEntity, TutorEntity tutorEntity, List<Long> filesIds) {
+    public Lesson(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, OrganizationEntity organizationEntity, TutorEntity tutorEntity, List<String> filesIds) {
         this.title = title;
         this.startDateOfLesson = startDateOfLesson;
         this.endDateOfLesson = endDateOfLesson;

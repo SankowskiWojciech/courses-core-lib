@@ -10,19 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_CONTENT_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_EXTENSION_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_ID_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_NAME_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.*;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -53,7 +44,7 @@ public class LessonFileRepositoryTest {
     @Test
     public void shouldFindEntityByIdCorrectly() {
         //given
-        long lessonFileId = FILE_ID_STUB;
+        String lessonFileId = FILE_ID_STUB;
 
         //when
         Optional<LessonFileEntity> foundLessonFileEntityOptional = testee.findById(lessonFileId);
@@ -72,7 +63,7 @@ public class LessonFileRepositoryTest {
     @Test
     public void shouldFindAllEntitiesWithoutFileContentByFileIdsCorrectly() {
         //given
-        Set<Long> fileIdsStub = Sets.newHashSet(1L, 2L, 3L);
+        Set<String> fileIdsStub = Sets.newHashSet("65462773-84dc-4738-816b-d044409498bf", "93a86ee9-b655-4d24-aa0d-4e3a051f6111", "3f3ab813-25bc-41fb-9e26-3055cfbb9aa2");
 
         //when
         List<LessonFileWithoutContent> lessonFilesWithoutContent = testee.findAllByFileIdIn(fileIdsStub);
@@ -85,7 +76,7 @@ public class LessonFileRepositoryTest {
     @Test
     public void shouldGetFileOwnerCorrectly() {
         //given
-        long lessonFileId = FILE_ID_STUB;
+        String lessonFileId = FILE_ID_STUB;
 
         //when
         String fileOwnerId = testee.getFileOwnerId(lessonFileId);
