@@ -33,6 +33,11 @@ values ('adamjan@wp.pl', 'Adam', 'Janczewski');
 insert into STUDENT(EMAIL_ADDRESS, FIRST_NAME, LAST_NAME)
 values ('4rturz@gmail.com', 'Artur', 'Zdun');
 
+--STUDENTS GROUPS
+insert into STUDENTS_GROUP(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, ORGANIZATION_ID, TUTOR_ID)
+values ('90cf0d45-700c-4384-84b4-7da0875f9d53', 'English B2', NULL, '2020-07-17T18:00:00', 'info@zslitnr1.pl',
+        'sankowski.wojciech@gmail.com');
+
 -- SUBDOMAIN
 insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
 values ('zslitnr1', 'ORGANIZATION');
@@ -145,6 +150,13 @@ insert into INDIVIDUAL_LESSON(LESSON_ID, TITLE, START_DATE_OF_LESSON, END_DATE_O
 values ('3945d30e-dc54-4f7c-a99a-ecb1219b5b18', 'Angular template-driven forms', '2020-09-18T18:00:00',
         '2020-09-18T21:00:00', 'Template-driven forms w pigułce.', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com',
         'rawskaka@gmail.com', '2020-07-17T18:00:00');
+
+-- GROUP LESSONS
+insert into GROUP_LESSON(LESSON_ID, TITLE, START_DATE_OF_LESSON, END_DATE_OF_LESSON, DESCRIPTION, ORGANIZATION_ID,
+                         TUTOR_ID, GROUP_ID, CREATION_DATE_TIME)
+values ('c41361f8-c0a5-4827-ba8e-f5b56ef61669', 'Lekcja grupowa nr 1', '2021-07-18T18:00:00', '2021-07-18T20:00:00',
+        'Opis pierwszej lekcji grupowej.', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com',
+        '90cf0d45-700c-4384-84b4-7da0875f9d53', '2020-07-17T18:00:00');
 
 -- LESSON_FILES
 insert into LESSON_FILE(FILE_ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
