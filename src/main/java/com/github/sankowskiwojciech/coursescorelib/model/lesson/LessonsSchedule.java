@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Getter
-public abstract class LessonsSchedule {
+public class LessonsSchedule {
     private final LocalDate beginningDate;
     private final LocalDate endDate;
     private final ScheduleType scheduleType;
