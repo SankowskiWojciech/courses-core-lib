@@ -38,6 +38,10 @@ insert into STUDENTS_GROUP(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, ORGANIZATI
 values ('90cf0d45-700c-4384-84b4-7da0875f9d53', 'English B2', NULL, '2020-07-17T18:00:00', 'info@zslitnr1.pl',
         'sankowski.wojciech@gmail.com');
 
+-- STUDENT GROUP ACCESS
+insert into STUDENT_GROUP_ACCESS(STUDENT_ID, GROUP_ID)
+values ('marcin.b@gmail.com', '90cf0d45-700c-4384-84b4-7da0875f9d53');
+
 -- SUBDOMAIN
 insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
 values ('zslitnr1', 'ORGANIZATION');
