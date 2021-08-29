@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
-public abstract class Lesson {
+public class Lesson {
     private final String title;
     private final LocalDateTime startDateOfLesson;
     private final LocalDateTime endDateOfLesson;
