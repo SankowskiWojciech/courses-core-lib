@@ -16,8 +16,8 @@ public interface IndividualLessonRepository extends JpaRepository<IndividualLess
     @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE :startDateOfLesson < individualLesson.endDateOfLesson AND :endDateOfLesson > individualLesson.startDateOfLesson AND individualLesson.tutorEntity.emailAddress = :tutorEmailAddress")
     List<IndividualLessonEntity> findAllLessonsWhichCanCollideWithNewLesson(@Param("startDateOfLesson") LocalDateTime startDateOfLesson, @Param("endDateOfLesson") LocalDateTime endDateOfLesson, @Param("tutorEmailAddress") String tutorEmailAddress);
 
-    @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE individualLesson.startDateOfLesson >= :startDateOfLesson AND individualLesson.endDateOfLesson <= :endDateOfLesson AND individualLesson.tutorEntity.emailAddress = :tutorEmailAddress AND individualLesson.organizationEntity.emailAddress = :organizationEmailAddress")
-    List<IndividualLessonEntity> findAllLessonsInRangeForTutor(@Param("startDateOfLesson") LocalDateTime startDateOfLesson, @Param("endDateOfLesson") LocalDateTime endDateOfLesson, @Param("tutorEmailAddress") String tutorEmailAddress, @Param("organizationEmailAddress") String organizationEmailAddress);
+    @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE individualLesson.startDateOfLesson >= :startDateOfLesson AND individualLesson.endDateOfLesson <= :endDateOfLesson AND individualLesson.tutorEntity.emailAddress = :tutorEmailAddress")
+    List<IndividualLessonEntity> findAllLessonsInRangeForTutor(@Param("startDateOfLesson") LocalDateTime startDateOfLesson, @Param("endDateOfLesson") LocalDateTime endDateOfLesson, @Param("tutorEmailAddress") String tutorEmailAddress);
 
     @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE (individualLesson.tutorEntity.emailAddress = :userId OR individualLesson.studentEntity.emailAddress = :userId) AND individualLesson.lessonId IN (:lessonsIds)")
     List<IndividualLessonEntity> findAllByUserIdAndLessonsIds(@Param("userId") String userId, @Param("lessonsIds") List<String> lessonsIds);

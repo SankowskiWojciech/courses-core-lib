@@ -116,12 +116,11 @@ public class IndividualLessonRepositoryTest {
         LocalDateTime existingIndividualLessonEndDate = currentDate.plusDays(3);
         IndividualLessonEntity existingIndividualLessonStub = IndividualLessonEntityStub.createWithDatesOfLesson(currentDate, currentDate.plusHours(2));
         String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
-        String organizationEmailAddress = ORGANIZATION_EMAIL_ADDRESS_STUB;
 
         testee.save(existingIndividualLessonStub);
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllLessonsInRangeForTutor(existingIndividualLessonStartDate, existingIndividualLessonEndDate, tutorEmailAddressStub, organizationEmailAddress);
+        List<IndividualLessonEntity> individualLessonEntities = testee.findAllLessonsInRangeForTutor(existingIndividualLessonStartDate, existingIndividualLessonEndDate, tutorEmailAddressStub);
 
         //then
         assertNotNull(individualLessonEntities);
