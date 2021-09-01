@@ -97,12 +97,11 @@ public class IndividualLessonRepositoryTest {
         LocalDateTime newIndividualLessonStartDate = currentDateTime.minusHours(1);
         LocalDateTime newIndividualLessonEndDate = currentDateTime.plusHours(1);
         String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
-        String organizationEmailAddress = ORGANIZATION_EMAIL_ADDRESS_STUB;
 
         testee.save(existingIndividualLessonStub);
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllLessonsWhichCanCollideWithNewLesson(newIndividualLessonStartDate, newIndividualLessonEndDate, tutorEmailAddressStub, organizationEmailAddress);
+        List<IndividualLessonEntity> individualLessonEntities = testee.findAllLessonsWhichCanCollideWithNewLesson(newIndividualLessonStartDate, newIndividualLessonEndDate, tutorEmailAddressStub);
 
         //then
         assertNotNull(individualLessonEntities);
