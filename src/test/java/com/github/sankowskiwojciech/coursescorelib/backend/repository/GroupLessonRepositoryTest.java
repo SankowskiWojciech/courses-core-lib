@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class GroupLessonRepositoryTest {
-
     @Autowired
     private GroupLessonRepository testee;
 
@@ -23,9 +22,9 @@ public class GroupLessonRepositoryTest {
         //given
 
         //when
-        List<GroupLessonEntity> groupLessonEntities = testee.findAll();
+        List<GroupLessonEntity> entities = testee.findAll();
 
         //then
-        assertFalse(groupLessonEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 }

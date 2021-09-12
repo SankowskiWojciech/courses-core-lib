@@ -6,6 +6,5 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GroupLessonRepository extends JpaRepository<GroupLessonEntity, String>, QuerydslPredicateExecutor {
-
+public interface GroupLessonRepository extends JpaRepository<GroupLessonEntity, String>, QuerydslPredicateExecutor<GroupLessonEntity> {
 }

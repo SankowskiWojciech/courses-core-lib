@@ -11,17 +11,16 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface IndividualLessonRepository extends JpaRepository<IndividualLessonEntity, String>, QuerydslPredicateExecutor {
-
-    @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE :startDateOfLesson < individualLesson.endDateOfLesson AND :endDateOfLesson > individualLesson.startDateOfLesson AND individualLesson.tutorEntity.emailAddress = :tutorEmailAddress")
+public interface IndividualLessonRepository extends JpaRepository<IndividualLessonEntity, String>, QuerydslPredicateExecutor<IndividualLessonEntity> {
+    @Query("SELECT lesson FROM IndividualLessonEntity lesson WHERE :startDateOfLesson < lesson.endDate AND :endDateOfLesson > lesson.startDate AND lesson.tutorEntity.emailAddress = :tutorEmailAddress")
     List<IndividualLessonEntity> findAllLessonsWhichCanCollideWithNewLesson(@Param("startDateOfLesson") LocalDateTime startDateOfLesson, @Param("endDateOfLesson") LocalDateTime endDateOfLesson, @Param("tutorEmailAddress") String tutorEmailAddress);
 
-    @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE individualLesson.startDateOfLesson >= :startDateOfLesson AND individualLesson.endDateOfLesson <= :endDateOfLesson AND individualLesson.tutorEntity.emailAddress = :tutorEmailAddress")
+    @Query("SELECT lesson FROM IndividualLessonEntity lesson WHERE lesson.startDate >= :startDateOfLesson AND lesson.endDate <= :endDateOfLesson AND lesson.tutorEntity.emailAddress = :tutorEmailAddress")
     List<IndividualLessonEntity> findAllLessonsInRangeForTutor(@Param("startDateOfLesson") LocalDateTime startDateOfLesson, @Param("endDateOfLesson") LocalDateTime endDateOfLesson, @Param("tutorEmailAddress") String tutorEmailAddress);
 
-    @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE (individualLesson.tutorEntity.emailAddress = :userId OR individualLesson.studentEntity.emailAddress = :userId) AND individualLesson.lessonId IN (:lessonsIds)")
+    @Query("SELECT lesson FROM IndividualLessonEntity lesson WHERE (lesson.tutorEntity.emailAddress = :userId OR lesson.studentEntity.emailAddress = :userId) AND lesson.id IN (:lessonsIds)")
     List<IndividualLessonEntity> findAllByUserIdAndLessonsIds(@Param("userId") String userId, @Param("lessonsIds") List<String> lessonsIds);
 
-    @Query("SELECT individualLesson FROM IndividualLessonEntity individualLesson WHERE (individualLesson.tutorEntity.emailAddress = :userId OR individualLesson.studentEntity.emailAddress = :userId)")
+    @Query("SELECT lesson FROM IndividualLessonEntity lesson WHERE (lesson.tutorEntity.emailAddress = :userId OR lesson.studentEntity.emailAddress = :userId)")
     List<IndividualLessonEntity> findAllByUserId(@Param("userId") String userId);
 }

@@ -14,32 +14,23 @@ import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.LESS
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class IndividualLessonEntityStub {
-
     public static IndividualLessonEntity createWithExternalEntities(OrganizationEntity organizationEntity, TutorEntity tutorEntity, StudentEntity studentEntity) {
-        final LocalDateTime currentDateTime = LocalDateTime.now();
-        return IndividualLessonEntity.builder()
-                .title(LESSON_TITLE_STUB)
-                .startDateOfLesson(currentDateTime.plusHours(1))
-                .endDateOfLesson(currentDateTime.plusHours(3))
-                .description(LESSON_DESCRIPTION_STUB)
-                .organizationEntity(organizationEntity)
-                .tutorEntity(tutorEntity)
-                .studentEntity(studentEntity)
-                .creationDateTime(currentDateTime)
-                .build();
+        final IndividualLessonEntity entity = create();
+        entity.setOrganizationEntity(organizationEntity);
+        entity.setTutorEntity(tutorEntity);
+        entity.setStudentEntity(studentEntity);
+        return entity;
     }
 
-    public static IndividualLessonEntity createWithDatesOfLesson(LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson) {
-        final LocalDateTime currentDateTime = LocalDateTime.now();
-        return IndividualLessonEntity.builder()
-                .title(LESSON_TITLE_STUB)
-                .startDateOfLesson(startDateOfLesson)
-                .endDateOfLesson(endDateOfLesson)
-                .description(LESSON_DESCRIPTION_STUB)
-                .organizationEntity(OrganizationEntityStub.create())
-                .tutorEntity(TutorEntityStub.create())
-                .studentEntity(StudentEntityStub.create())
-                .creationDateTime(currentDateTime.minusMonths(2))
-                .build();
+    public static IndividualLessonEntity createWithDatesOfLesson(LocalDateTime startDate, LocalDateTime endDate) {
+        final IndividualLessonEntity entity = create();
+        entity.setStartDate(startDate);
+        entity.setEndDate(endDate);
+        return entity;
+    }
+
+    private static IndividualLessonEntity create() {
+        final LocalDateTime currentDateTime = LocalDateTime.now().plusHours(1);
+        return new IndividualLessonEntity(null, LESSON_TITLE_STUB, currentDateTime, currentDateTime.plusHours(3), LESSON_DESCRIPTION_STUB, currentDateTime, currentDateTime.plusMinutes(30), OrganizationEntityStub.create(), TutorEntityStub.create(), StudentEntityStub.create());
     }
 }

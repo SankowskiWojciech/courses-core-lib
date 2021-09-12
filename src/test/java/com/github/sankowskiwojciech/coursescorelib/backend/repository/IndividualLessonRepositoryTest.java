@@ -23,7 +23,6 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class IndividualLessonRepositoryTest {
-
     @Autowired
     private IndividualLessonRepository testee;
 
@@ -32,37 +31,37 @@ public class IndividualLessonRepositoryTest {
         //given
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAll();
+        List<IndividualLessonEntity> entities = testee.findAll();
 
         //then
-        assertFalse(individualLessonEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 
     @Test
     public void shouldFindEntityByIdCorrectly() {
         //given
-        String individualLessonIdStub = INDIVIDUAL_LESSON_ID_STUB;
+        String lessonIdStub = INDIVIDUAL_LESSON_ID_STUB;
         String organizationEmailAddressStub = ORGANIZATION_EMAIL_ADDRESS_STUB;
         String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
         String studentEmailAddressStub = STUDENT_EMAIL_ADDRESS_STUB;
 
         //when
-        Optional<IndividualLessonEntity> individualLessonEntityOptional = testee.findById(individualLessonIdStub);
+        Optional<IndividualLessonEntity> entityOptional = testee.findById(lessonIdStub);
 
         //then
-        assertTrue(individualLessonEntityOptional.isPresent());
-        IndividualLessonEntity individualLessonEntity = individualLessonEntityOptional.get();
-        assertEquals(individualLessonIdStub, individualLessonEntity.getLessonId());
+        assertTrue(entityOptional.isPresent());
+        IndividualLessonEntity entity = entityOptional.get();
+        assertEquals(lessonIdStub, entity.getId());
 
-        OrganizationEntity organizationEntity = individualLessonEntity.getOrganizationEntity();
+        OrganizationEntity organizationEntity = entity.getOrganizationEntity();
         assertNotNull(organizationEntity);
         assertEquals(organizationEmailAddressStub, organizationEntity.getEmailAddress());
 
-        TutorEntity tutorEntity = individualLessonEntity.getTutorEntity();
+        TutorEntity tutorEntity = entity.getTutorEntity();
         assertNotNull(tutorEntity);
         assertEquals(tutorEmailAddressStub, tutorEntity.getEmailAddress());
 
-        StudentEntity studentEntity = individualLessonEntity.getStudentEntity();
+        StudentEntity studentEntity = entity.getStudentEntity();
         assertNotNull(studentEntity);
         assertEquals(studentEmailAddressStub, studentEntity.getEmailAddress());
     }
@@ -73,84 +72,84 @@ public class IndividualLessonRepositoryTest {
         OrganizationEntity organizationEntityStub = OrganizationEntityStub.create();
         TutorEntity tutorEntityStub = TutorEntityStub.create();
         StudentEntity studentEntityStub = StudentEntityStub.create();
-        IndividualLessonEntity individualLessonEntityStub = IndividualLessonEntityStub.createWithExternalEntities(organizationEntityStub, tutorEntityStub, studentEntityStub);
+        IndividualLessonEntity entityStub = IndividualLessonEntityStub.createWithExternalEntities(organizationEntityStub, tutorEntityStub, studentEntityStub);
 
         //when
-        IndividualLessonEntity savedIndividualLessonEntity = testee.save(individualLessonEntityStub);
+        IndividualLessonEntity savedEntity = testee.save(entityStub);
 
         //then
-        assertNotNull(savedIndividualLessonEntity);
-        assertEquals(individualLessonEntityStub.getLessonId(), savedIndividualLessonEntity.getLessonId());
-        assertEquals(individualLessonEntityStub.getTitle(), savedIndividualLessonEntity.getTitle());
-        assertEquals(individualLessonEntityStub.getStartDateOfLesson(), savedIndividualLessonEntity.getStartDateOfLesson());
-        assertEquals(individualLessonEntityStub.getEndDateOfLesson(), savedIndividualLessonEntity.getEndDateOfLesson());
-        assertEquals(individualLessonEntityStub.getDescription(), savedIndividualLessonEntity.getDescription());
+        assertNotNull(savedEntity);
+        assertEquals(entityStub.getId(), savedEntity.getId());
+        assertEquals(entityStub.getTitle(), savedEntity.getTitle());
+        assertEquals(entityStub.getStartDate(), savedEntity.getStartDate());
+        assertEquals(entityStub.getEndDate(), savedEntity.getEndDate());
+        assertEquals(entityStub.getDescription(), savedEntity.getDescription());
     }
 
     @Test
     public void shouldFindAllIndividualLessonsWhichCanCollideWithNewIndividualLesson() {
         //given
         final LocalDateTime currentDateTime = LocalDateTime.now();
-        LocalDateTime existingIndividualLessonStartDate = currentDateTime;
-        LocalDateTime existingIndividualLessonEndDate = currentDateTime.plusHours(2);
-        IndividualLessonEntity existingIndividualLessonStub = IndividualLessonEntityStub.createWithDatesOfLesson(existingIndividualLessonStartDate, existingIndividualLessonEndDate);
-        LocalDateTime newIndividualLessonStartDate = currentDateTime.minusHours(1);
-        LocalDateTime newIndividualLessonEndDate = currentDateTime.plusHours(1);
+        LocalDateTime existingLessonStartDate = currentDateTime;
+        LocalDateTime existingLessonEndDate = currentDateTime.plusHours(2);
+        IndividualLessonEntity existingLessonStub = IndividualLessonEntityStub.createWithDatesOfLesson(existingLessonStartDate, existingLessonEndDate);
+        LocalDateTime newLessonStartDate = currentDateTime.minusHours(1);
+        LocalDateTime newLessonEndDate = currentDateTime.plusHours(1);
         String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
 
-        testee.save(existingIndividualLessonStub);
+        testee.save(existingLessonStub);
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllLessonsWhichCanCollideWithNewLesson(newIndividualLessonStartDate, newIndividualLessonEndDate, tutorEmailAddressStub);
+        List<IndividualLessonEntity> entities = testee.findAllLessonsWhichCanCollideWithNewLesson(newLessonStartDate, newLessonEndDate, tutorEmailAddressStub);
 
         //then
-        assertNotNull(individualLessonEntities);
-        assertFalse(individualLessonEntities.isEmpty());
+        assertNotNull(entities);
+        assertFalse(entities.isEmpty());
     }
 
     @Test
     public void shouldFindAllIndividualLessonsInRangeForTutor() {
         //given
         final LocalDateTime currentDate = LocalDate.now().atStartOfDay();
-        LocalDateTime existingIndividualLessonStartDate = currentDate.minusDays(2);
-        LocalDateTime existingIndividualLessonEndDate = currentDate.plusDays(3);
-        IndividualLessonEntity existingIndividualLessonStub = IndividualLessonEntityStub.createWithDatesOfLesson(currentDate, currentDate.plusHours(2));
+        LocalDateTime existingLessonStartDate = currentDate.minusDays(2);
+        LocalDateTime existingLessonEndDate = currentDate.plusDays(3);
+        IndividualLessonEntity existingLessonStub = IndividualLessonEntityStub.createWithDatesOfLesson(currentDate, currentDate.plusHours(2));
         String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
 
-        testee.save(existingIndividualLessonStub);
+        testee.save(existingLessonStub);
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllLessonsInRangeForTutor(existingIndividualLessonStartDate, existingIndividualLessonEndDate, tutorEmailAddressStub);
+        List<IndividualLessonEntity> entities = testee.findAllLessonsInRangeForTutor(existingLessonStartDate, existingLessonEndDate, tutorEmailAddressStub);
 
         //then
-        assertNotNull(individualLessonEntities);
-        assertFalse(individualLessonEntities.isEmpty());
+        assertNotNull(entities);
+        assertFalse(entities.isEmpty());
     }
 
     @Test
     public void shouldFindAllEntitiesByTutorIdAndLessonsIdsCorrectly() {
         //given
         String tutorIdStub = TUTOR_EMAIL_ADDRESS_STUB;
-        List<String> lessonsIdsStub = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "93ec0365-1c31-4fb3-b90b-b92d89ea8cfa", "21809b9c-1cf6-482f-a67f-6283c23a85f8", "f88ec986-e473-48d2-85fe-1eecaa39f10a");
+        List<String> lessonsIdStubs = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "93ec0365-1c31-4fb3-b90b-b92d89ea8cfa", "21809b9c-1cf6-482f-a67f-6283c23a85f8", "f88ec986-e473-48d2-85fe-1eecaa39f10a");
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByUserIdAndLessonsIds(tutorIdStub, lessonsIdsStub);
+        List<IndividualLessonEntity> entities = testee.findAllByUserIdAndLessonsIds(tutorIdStub, lessonsIdStubs);
 
         //then
-        assertFalse(individualLessonEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 
     @Test
     public void shouldFindAllEntitiesByStudentIdAndLessonsIdsCorrectly() {
         //given
         String studentIdStub = STUDENT_EMAIL_ADDRESS_STUB;
-        List<String> lessonsIdsStub = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "93ec0365-1c31-4fb3-b90b-b92d89ea8cfa", "21809b9c-1cf6-482f-a67f-6283c23a85f8", "f88ec986-e473-48d2-85fe-1eecaa39f10a");
+        List<String> lessonsIdStubs = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "93ec0365-1c31-4fb3-b90b-b92d89ea8cfa", "21809b9c-1cf6-482f-a67f-6283c23a85f8", "f88ec986-e473-48d2-85fe-1eecaa39f10a");
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByUserIdAndLessonsIds(studentIdStub, lessonsIdsStub);
+        List<IndividualLessonEntity> entities = testee.findAllByUserIdAndLessonsIds(studentIdStub, lessonsIdStubs);
 
         //then
-        assertFalse(individualLessonEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 
     @Test
@@ -159,9 +158,9 @@ public class IndividualLessonRepositoryTest {
         String tutorIdStub = TUTOR_EMAIL_ADDRESS_STUB;
 
         //when
-        List<IndividualLessonEntity> individualLessonEntities = testee.findAllByUserId(tutorIdStub);
+        List<IndividualLessonEntity> entities = testee.findAllByUserId(tutorIdStub);
 
         //then
-        assertFalse(individualLessonEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 }
