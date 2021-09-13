@@ -2,20 +2,9 @@ package com.github.sankowskiwojciech.coursescorelib.model.db.student;
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson.IndividualLessonEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.parent.ParentEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Getter
@@ -26,7 +15,6 @@ import java.util.Set;
 @Table(name = "STUDENT")
 @EqualsAndHashCode(exclude = "individualLessons")
 public class StudentEntity {
-
     private static final String FIRST_NAME_LAST_NAME_DIVIDER = " ";
 
     @Id

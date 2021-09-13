@@ -10,10 +10,9 @@ import java.util.function.Function;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TutorEntityToSubdomain implements Function<TutorEntity, Subdomain> {
+    private static final TutorEntityToSubdomain INSTANCE = new TutorEntityToSubdomain();
 
-    private final static TutorEntityToSubdomain INSTANCE = new TutorEntityToSubdomain();
-
-    private final static String TUTOR_FIRST_NAME_LAST_NAME_DELIMITER = " ";
+    private static final String TUTOR_FIRST_NAME_LAST_NAME_DELIMITER = " ";
 
     @Override
     public Subdomain apply(TutorEntity tutorEntity) {

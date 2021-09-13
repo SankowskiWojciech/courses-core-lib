@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface SubdomainUserAccessRepository extends JpaRepository<SubdomainUserAccessEntity, SubdomainUserAccessEntityId> {
-
     List<SubdomainUserAccessEntity> findAllBySubdomainUserAccessEntityIdSubdomainIdAndSubdomainUserAccessEntityIdUserEmailAddressIsNot(String subdomainId, String tutorEmailAddress);
 }

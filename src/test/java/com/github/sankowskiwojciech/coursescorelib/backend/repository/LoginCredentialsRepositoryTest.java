@@ -17,7 +17,6 @@ import static org.junit.Assert.assertTrue;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class LoginCredentialsRepositoryTest {
-
     @Autowired
     private LoginCredentialsRepository testee;
 
@@ -26,10 +25,10 @@ public class LoginCredentialsRepositoryTest {
         //given
 
         //when
-        List<LoginCredentialsEntity> loginCredentialsEntities = testee.findAll();
+        List<LoginCredentialsEntity> entities = testee.findAll();
 
         //then
-        assertFalse(loginCredentialsEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 
     @Test
@@ -38,9 +37,9 @@ public class LoginCredentialsRepositoryTest {
         String emailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
 
         //when
-        Optional<LoginCredentialsEntity> loginCredentialsEntity = testee.findById(emailAddressStub);
+        Optional<LoginCredentialsEntity> entity = testee.findById(emailAddressStub);
 
         //then
-        assertTrue(loginCredentialsEntity.isPresent());
+        assertTrue(entity.isPresent());
     }
 }

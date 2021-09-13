@@ -1,12 +1,12 @@
-package com.github.sankowskiwojciech.coursescorelib.model.db.lessonfile;
+package com.github.sankowskiwojciech.coursescorelib.model.db.file;
 
 import lombok.Value;
 
 import java.time.LocalDateTime;
 
 @Value
-public class LessonFileWithoutContent {
-    String fileId;
+public class FileWithoutContent {
+    String id;
     String name;
     String extension;
     String createdBy;

@@ -1,15 +1,8 @@
 package com.github.sankowskiwojciech.coursescorelib.model.db.parent;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @AllArgsConstructor
@@ -19,7 +12,6 @@ import javax.persistence.Table;
 @Table(name = "PARENT")
 @EqualsAndHashCode
 public class ParentEntity {
-
     @Id
     @Column(name = "EMAIL_ADDRESS", length = 50, unique = true, nullable = false, updatable = false)
     private String emailAddress;

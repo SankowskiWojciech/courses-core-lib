@@ -1,17 +1,9 @@
 package com.github.sankowskiwojciech.coursescorelib.model.db.login;
 
 import com.github.sankowskiwojciech.coursescorelib.model.account.AccountType;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +12,6 @@ import javax.persistence.Table;
 @Table(name = "LOGIN_CREDENTIALS")
 @EqualsAndHashCode
 public class LoginCredentialsEntity {
-
     @Id
     @Column(name = "USER_EMAIL_ADDRESS", length = 50, unique = true, nullable = false, updatable = false)
     private String userEmailAddress;

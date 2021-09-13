@@ -1,16 +1,8 @@
 package com.github.sankowskiwojciech.coursescorelib.model.db.subdomain;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MapsId;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @AllArgsConstructor
@@ -19,7 +11,6 @@ import javax.persistence.Table;
 @Table(name = "SUBDOMAIN_USER_ACCESS")
 @EqualsAndHashCode(of = "subdomainUserAccessEntityId")
 public class SubdomainUserAccessEntity {
-
     @EmbeddedId
     private SubdomainUserAccessEntityId subdomainUserAccessEntityId;
 

@@ -1,8 +1,6 @@
 package com.github.sankowskiwojciech.coursescorelib.service.subdomain;
 
-import com.github.sankowskiwojciech.coursescorelib.backend.repository.OrganizationRepository;
-import com.github.sankowskiwojciech.coursescorelib.backend.repository.SubdomainRepository;
-import com.github.sankowskiwojciech.coursescorelib.backend.repository.TutorRepository;
+import com.github.sankowskiwojciech.coursescorelib.backend.repository.*;
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainUserAccessEntity;
@@ -11,32 +9,21 @@ import com.github.sankowskiwojciech.coursescorelib.model.exception.SubdomainNotF
 import com.github.sankowskiwojciech.coursescorelib.model.exception.permission.UserNotAllowedToAccessSubdomainException;
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.Subdomain;
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.SubdomainType;
-import com.github.sankowskiwojciech.coursescorelib.stub.OrganizationEntityStub;
-import com.github.sankowskiwojciech.coursescorelib.stub.SubdomainEntityStub;
-import com.github.sankowskiwojciech.coursescorelib.stub.SubdomainUserAccessEntityStub;
-import com.github.sankowskiwojciech.coursescorelib.stub.TutorEntityStub;
+import com.github.sankowskiwojciech.coursescorelib.stub.*;
 import com.google.common.collect.Sets;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.Collections;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.ORGANIZATION_ALIAS_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_ALIAS_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
+import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class SubdomainServiceImplTest {
-
     private final OrganizationRepository organizationRepositoryMock = mock(OrganizationRepository.class);
     private final TutorRepository tutorRepositoryMock = mock(TutorRepository.class);
     private final SubdomainRepository subdomainRepositoryMock = mock(SubdomainRepository.class);

@@ -12,27 +12,24 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TOKEN_VALUE_STUB;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class TokenRepositoryTest {
-
     @Autowired
     private TokenRepository testee;
 
     @Test
     public void shouldSaveEntityCorrectly() {
         //given
-        TokenEntity tokenEntityStub = TokenEntityStub.create();
+        TokenEntity entityStub = TokenEntityStub.create();
 
         //when
-        TokenEntity savedTokenEntity = testee.save(tokenEntityStub);
+        TokenEntity savedEntity = testee.save(entityStub);
 
         //then
-        assertEquals(tokenEntityStub, savedTokenEntity);
+        assertEquals(entityStub, savedEntity);
     }
 
     @Test
@@ -40,10 +37,10 @@ public class TokenRepositoryTest {
         //given
 
         //when
-        List<TokenEntity> tokenEntities = testee.findAll();
+        List<TokenEntity> entities = testee.findAll();
 
         //then
-        assertFalse(tokenEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 
     @Test

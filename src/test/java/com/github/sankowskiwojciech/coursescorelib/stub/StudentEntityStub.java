@@ -4,13 +4,10 @@ import com.github.sankowskiwojciech.coursescorelib.model.db.student.StudentEntit
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.STUDENT_EMAIL_ADDRESS_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.STUDENT_FIRST_NAME_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.STUDENT_LAST_NAME_STUB;
+import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class StudentEntityStub {
-
     public static StudentEntity create() {
         return StudentEntity.builder()
                 .emailAddress(STUDENT_EMAIL_ADDRESS_STUB)

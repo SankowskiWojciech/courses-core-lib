@@ -1,8 +1,6 @@
 package com.github.sankowskiwojciech.coursescorelib.service.subdomain;
 
-import com.github.sankowskiwojciech.coursescorelib.backend.repository.OrganizationRepository;
-import com.github.sankowskiwojciech.coursescorelib.backend.repository.SubdomainRepository;
-import com.github.sankowskiwojciech.coursescorelib.backend.repository.TutorRepository;
+import com.github.sankowskiwojciech.coursescorelib.backend.repository.*;
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainUserAccessEntity;
@@ -17,14 +15,11 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
 public class SubdomainServiceImpl implements SubdomainService {
-
     private final OrganizationRepository organizationRepository;
     private final TutorRepository tutorRepository;
     private final SubdomainRepository subdomainRepository;

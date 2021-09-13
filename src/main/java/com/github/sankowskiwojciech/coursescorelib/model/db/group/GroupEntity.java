@@ -13,15 +13,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "STUDENTS_GROUP")
+@Table(name = "GROUP_OF_STUDENTS")
 @EqualsAndHashCode(exclude = {"tutorEntity", "organizationEntity"})
-public class StudentsGroupEntity {
-
+public class GroupEntity {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "ID", length = 36, unique = true, nullable = false, updatable = false)
-    private String groupId;
+    private String id;
 
     @Column(name = "NAME", length = 50, nullable = false)
     private String name;

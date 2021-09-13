@@ -14,7 +14,6 @@ import static org.junit.Assert.assertFalse;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class StudentGroupAccessRepositoryTest {
-
     @Autowired
     private StudentGroupAccessRepository testee;
 
@@ -23,9 +22,9 @@ public class StudentGroupAccessRepositoryTest {
         //given
 
         //when
-        List<StudentGroupAccessEntity> studentGroupAccessEntities = testee.findAll();
+        List<StudentGroupAccessEntity> entities = testee.findAll();
 
         //then
-        assertFalse(studentGroupAccessEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 }

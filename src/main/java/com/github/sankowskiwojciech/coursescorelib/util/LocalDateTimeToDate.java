@@ -10,7 +10,6 @@ import java.util.function.Function;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class LocalDateTimeToDate implements Function<LocalDateTime, Date> {
-
     private static final LocalDateTimeToDate INSTANCE = new LocalDateTimeToDate();
 
     @Override

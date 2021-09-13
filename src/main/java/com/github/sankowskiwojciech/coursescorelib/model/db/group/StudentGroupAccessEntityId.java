@@ -12,7 +12,6 @@ import java.io.Serializable;
 @Embeddable
 @Getter
 public class StudentGroupAccessEntityId implements Serializable {
-
     @Column(name = "STUDENT_ID", length = 50, nullable = false, updatable = false)
     private String studentId;
 

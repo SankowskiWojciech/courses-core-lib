@@ -1,4 +1,4 @@
-package com.github.sankowskiwojciech.coursescorelib.model.db.lessonfile;
+package com.github.sankowskiwojciech.coursescorelib.model.db.file;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -11,15 +11,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "LESSON_FILE")
+@Table(name = "FILE")
 @EqualsAndHashCode
-public class LessonFileEntity {
-
+public class FileEntity {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "FILE_ID", length = 36, unique = true, nullable = false, updatable = false)
-    private String fileId;
+    @Column(name = "ID", length = 36, unique = true, nullable = false, updatable = false)
+    private String id;
 
     @Column(name = "NAME", length = 50, nullable = false, updatable = false)
     private String name;

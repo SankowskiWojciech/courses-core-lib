@@ -7,20 +7,20 @@ import java.util.List;
 
 @Getter
 public abstract class LessonResponse {
-    private final String lessonId;
+    private final String id;
     private final String title;
-    private final LocalDateTime startDateOfLesson;
-    private final LocalDateTime endDateOfLesson;
+    private final LocalDateTime startDate;
+    private final LocalDateTime endDate;
     private final String description;
     private final String subdomainName;
     private final String tutorEmailAddress;
     private final List<LessonFileResponse> filesInformation;
 
-    public LessonResponse(String lessonId, String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainName, String tutorEmailAddress, List<LessonFileResponse> filesInformation) {
-        this.lessonId = lessonId;
+    public LessonResponse(String id, String title, LocalDateTime startDate, LocalDateTime endDate, String description, String subdomainName, String tutorEmailAddress, List<LessonFileResponse> filesInformation) {
+        this.id = id;
         this.title = title;
-        this.startDateOfLesson = startDateOfLesson;
-        this.endDateOfLesson = endDateOfLesson;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.description = description;
         this.subdomainName = subdomainName;
         this.tutorEmailAddress = tutorEmailAddress;

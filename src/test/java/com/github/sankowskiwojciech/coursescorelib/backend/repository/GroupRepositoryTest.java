@@ -1,6 +1,6 @@
 package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
-import com.github.sankowskiwojciech.coursescorelib.model.db.group.StudentsGroupEntity;
+import com.github.sankowskiwojciech.coursescorelib.model.db.group.GroupEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +13,18 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class StudentsGroupRepositoryTest {
-
+public class GroupRepositoryTest {
     @Autowired
-    private StudentsGroupRepository testee;
+    private GroupRepository testee;
 
     @Test
     public void shouldFindAllEntitiesCorrectly() {
         //given
 
         //when
-        List<StudentsGroupEntity> studentsGroupEntities = testee.findAll();
+        List<GroupEntity> entities = testee.findAll();
 
         //then
-        assertFalse(studentsGroupEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 }

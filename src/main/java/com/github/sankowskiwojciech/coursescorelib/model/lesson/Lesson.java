@@ -10,17 +10,17 @@ import java.util.List;
 @Getter
 public class Lesson {
     private final String title;
-    private final LocalDateTime startDateOfLesson;
-    private final LocalDateTime endDateOfLesson;
+    private final LocalDateTime startDate;
+    private final LocalDateTime endDate;
     private final String description;
     private final OrganizationEntity organizationEntity;
     private final TutorEntity tutorEntity;
     private final List<String> filesIds;
 
-    public Lesson(String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, OrganizationEntity organizationEntity, TutorEntity tutorEntity, List<String> filesIds) {
+    public Lesson(String title, LocalDateTime startDate, LocalDateTime endDate, String description, OrganizationEntity organizationEntity, TutorEntity tutorEntity, List<String> filesIds) {
         this.title = title;
-        this.startDateOfLesson = startDateOfLesson;
-        this.endDateOfLesson = endDateOfLesson;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.description = description;
         this.organizationEntity = organizationEntity;
         this.tutorEntity = tutorEntity;

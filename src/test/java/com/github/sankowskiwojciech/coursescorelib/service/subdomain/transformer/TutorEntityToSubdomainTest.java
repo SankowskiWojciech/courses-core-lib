@@ -6,15 +6,12 @@ import com.github.sankowskiwojciech.coursescorelib.model.subdomain.SubdomainType
 import com.github.sankowskiwojciech.coursescorelib.stub.TutorEntityStub;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TutorEntityToSubdomainTest {
+    private final TutorEntityToSubdomain testee = TutorEntityToSubdomain.getInstance();
 
     private final static String TUTOR_FIRST_NAME_LAST_NAME_DELIMITER = " ";
-
-    private final TutorEntityToSubdomain testee = TutorEntityToSubdomain.getInstance();
 
     @Test
     public void shouldTransformCorrectly() {

@@ -4,16 +4,10 @@ import com.github.sankowskiwojciech.coursescorelib.model.db.tutor.TutorEntity;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_ALIAS_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_DESCRIPTION_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_FIRST_NAME_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_LAST_NAME_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_PHONE_NUMBER_STUB;
+import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TutorEntityStub {
-
     public static TutorEntity create() {
         return TutorEntity.builder()
                 .emailAddress(TUTOR_EMAIL_ADDRESS_STUB)

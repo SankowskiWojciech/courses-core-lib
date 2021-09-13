@@ -13,15 +13,11 @@ import java.util.Optional;
 
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.PARENT_EMAIL_ADDRESS_STUB;
 import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.STUDENT_EMAIL_ADDRESS_STUB;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class StudentRepositoryTest {
-
     @Autowired
     private StudentRepository testee;
 
@@ -30,10 +26,10 @@ public class StudentRepositoryTest {
         //given
 
         //when
-        List<StudentEntity> studentEntities = testee.findAll();
+        List<StudentEntity> entities = testee.findAll();
 
         //then
-        assertFalse(studentEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 
     @Test

@@ -10,8 +10,7 @@ import java.util.function.Function;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrganizationEntityToSubdomain implements Function<OrganizationEntity, Subdomain> {
-
-    private final static OrganizationEntityToSubdomain INSTANCE = new OrganizationEntityToSubdomain();
+    private static final OrganizationEntityToSubdomain INSTANCE = new OrganizationEntityToSubdomain();
 
     @Override
     public Subdomain apply(OrganizationEntity organizationEntity) {

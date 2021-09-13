@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Table(name = "STUDENT_GROUP_ACCESS")
 @EqualsAndHashCode(of = "studentGroupAccessEntityId")
 public class StudentGroupAccessEntity {
-
     @EmbeddedId
     private StudentGroupAccessEntityId studentGroupAccessEntityId;
 
@@ -24,5 +23,5 @@ public class StudentGroupAccessEntity {
     @MapsId("groupId")
     @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID")
     @ManyToOne
-    private StudentsGroupEntity studentsGroupEntity;
+    private GroupEntity groupEntity;
 }

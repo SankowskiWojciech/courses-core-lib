@@ -40,18 +40,18 @@ public class IndividualLessonRepositoryTest {
     @Test
     public void shouldFindEntityByIdCorrectly() {
         //given
-        String lessonIdStub = INDIVIDUAL_LESSON_ID_STUB;
+        String idStub = INDIVIDUAL_LESSON_ID_STUB;
         String organizationEmailAddressStub = ORGANIZATION_EMAIL_ADDRESS_STUB;
         String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
         String studentEmailAddressStub = STUDENT_EMAIL_ADDRESS_STUB;
 
         //when
-        Optional<IndividualLessonEntity> entityOptional = testee.findById(lessonIdStub);
+        Optional<IndividualLessonEntity> entityOptional = testee.findById(idStub);
 
         //then
         assertTrue(entityOptional.isPresent());
         IndividualLessonEntity entity = entityOptional.get();
-        assertEquals(lessonIdStub, entity.getId());
+        assertEquals(idStub, entity.getId());
 
         OrganizationEntity organizationEntity = entity.getOrganizationEntity();
         assertNotNull(organizationEntity);
@@ -133,7 +133,7 @@ public class IndividualLessonRepositoryTest {
         List<String> lessonsIdStubs = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "93ec0365-1c31-4fb3-b90b-b92d89ea8cfa", "21809b9c-1cf6-482f-a67f-6283c23a85f8", "f88ec986-e473-48d2-85fe-1eecaa39f10a");
 
         //when
-        List<IndividualLessonEntity> entities = testee.findAllByUserIdAndLessonsIds(tutorIdStub, lessonsIdStubs);
+        List<IndividualLessonEntity> entities = testee.findAllByUserIdAndLessonIdIn(tutorIdStub, lessonsIdStubs);
 
         //then
         assertFalse(entities.isEmpty());
@@ -146,7 +146,7 @@ public class IndividualLessonRepositoryTest {
         List<String> lessonsIdStubs = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "93ec0365-1c31-4fb3-b90b-b92d89ea8cfa", "21809b9c-1cf6-482f-a67f-6283c23a85f8", "f88ec986-e473-48d2-85fe-1eecaa39f10a");
 
         //when
-        List<IndividualLessonEntity> entities = testee.findAllByUserIdAndLessonsIds(studentIdStub, lessonsIdStubs);
+        List<IndividualLessonEntity> entities = testee.findAllByUserIdAndLessonIdIn(studentIdStub, lessonsIdStubs);
 
         //then
         assertFalse(entities.isEmpty());

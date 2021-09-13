@@ -13,18 +13,18 @@ public class LessonsSchedule {
     private final LocalDate endDate;
     private final ScheduleType scheduleType;
     private final Long allLessonsDurationInMinutes;
-    private final List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes;
-    private final List<String> lessonsTitles;
+    private final List<DayOfWeekWithTimes> daysOfWeekWithTimes;
+    private final List<String> titles;
     private final OrganizationEntity organizationEntity;
     private final TutorEntity tutorEntity;
 
-    public LessonsSchedule(LocalDate beginningDate, LocalDate endDate, ScheduleType scheduleType, Long allLessonsDurationInMinutes, List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes, List<String> lessonsTitles, OrganizationEntity organizationEntity, TutorEntity tutorEntity) {
+    public LessonsSchedule(LocalDate beginningDate, LocalDate endDate, ScheduleType scheduleType, Long allLessonsDurationInMinutes, List<DayOfWeekWithTimes> daysOfWeekWithTimes, List<String> titles, OrganizationEntity organizationEntity, TutorEntity tutorEntity) {
         this.beginningDate = beginningDate;
         this.endDate = endDate;
         this.scheduleType = scheduleType;
         this.allLessonsDurationInMinutes = allLessonsDurationInMinutes;
-        this.lessonsDaysOfWeekWithTimes = lessonsDaysOfWeekWithTimes;
-        this.lessonsTitles = lessonsTitles;
+        this.daysOfWeekWithTimes = daysOfWeekWithTimes;
+        this.titles = titles;
         this.organizationEntity = organizationEntity;
         this.tutorEntity = tutorEntity;
     }

@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class ParentRepositoryTest {
-
     @Autowired
     private ParentRepository testee;
 
@@ -23,9 +22,9 @@ public class ParentRepositoryTest {
         //given
 
         //when
-        List<ParentEntity> parentEntities = testee.findAll();
+        List<ParentEntity> entities = testee.findAll();
 
         //then
-        assertFalse(parentEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 }

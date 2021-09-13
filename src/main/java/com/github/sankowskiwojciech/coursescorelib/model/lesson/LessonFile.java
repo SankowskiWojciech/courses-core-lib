@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class LessonFile {
-    private String fileId;
+    private String id;
     private String name;
     private String extension;
     private byte[] content;

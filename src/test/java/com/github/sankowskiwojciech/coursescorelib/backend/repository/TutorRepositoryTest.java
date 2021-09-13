@@ -17,7 +17,6 @@ import static org.junit.Assert.assertTrue;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class TutorRepositoryTest {
-
     @Autowired
     private TutorRepository testee;
 
@@ -26,10 +25,10 @@ public class TutorRepositoryTest {
         //given
 
         //when
-        List<TutorEntity> tutorEntities = testee.findAll();
+        List<TutorEntity> entities = testee.findAll();
 
         //then
-        assertFalse(tutorEntities.isEmpty());
+        assertFalse(entities.isEmpty());
     }
 
     @Test
@@ -38,11 +37,11 @@ public class TutorRepositoryTest {
         String tutorAlias = TUTOR_ALIAS_STUB;
 
         //when
-        Optional<TutorEntity> tutorEntityOptional = testee.findByAlias(tutorAlias);
+        Optional<TutorEntity> entityOptional = testee.findByAlias(tutorAlias);
 
         //then
-        assertTrue(tutorEntityOptional.isPresent());
-        TutorEntity tutorEntity = tutorEntityOptional.get();
-        assertFalse(tutorEntity.getIndividualLessons().isEmpty());
+        assertTrue(entityOptional.isPresent());
+        TutorEntity entity = entityOptional.get();
+        assertFalse(entity.getIndividualLessons().isEmpty());
     }
 }

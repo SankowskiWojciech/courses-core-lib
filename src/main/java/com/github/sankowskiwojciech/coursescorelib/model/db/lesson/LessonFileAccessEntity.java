@@ -1,4 +1,4 @@
-package com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson;
+package com.github.sankowskiwojciech.coursescorelib.model.db.lesson;
 
 import lombok.*;
 
@@ -9,11 +9,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "INDIVIDUAL_LESSON_FILE")
-@IdClass(IndividualLessonFileEntityId.class)
+@Table(name = "LESSON_FILE_ACCESS")
+@IdClass(LessonFileAccessEntityId.class)
 @EqualsAndHashCode
-public class IndividualLessonFileEntity {
-
+public class LessonFileAccessEntity {
     @Id
     @Column(name = "LESSON_ID", length = 36, nullable = false, updatable = false)
     private String lessonId;

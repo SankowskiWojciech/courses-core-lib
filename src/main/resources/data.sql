@@ -33,8 +33,8 @@ values ('adamjan@wp.pl', 'Adam', 'Janczewski');
 insert into STUDENT(EMAIL_ADDRESS, FIRST_NAME, LAST_NAME)
 values ('4rturz@gmail.com', 'Artur', 'Zdun');
 
--- STUDENTS GROUPS
-insert into STUDENTS_GROUP(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, ORGANIZATION_ID, TUTOR_ID)
+-- GROUP OF STUDENTS
+insert into GROUP_OF_STUDENTS(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, ORGANIZATION_ID, TUTOR_ID)
 values ('90cf0d45-700c-4384-84b4-7da0875f9d53', 'English B2', NULL, '2020-07-17T18:00:00', 'info@zslitnr1.pl',
         'sankowski.wojciech@gmail.com');
 
@@ -161,31 +161,31 @@ values ('c41361f8-c0a5-4827-ba8e-f5b56ef61669', 'Lekcja grupowa nr 1', '2021-07-
         'Opis pierwszej lekcji grupowej.', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com',
         '90cf0d45-700c-4384-84b4-7da0875f9d53', '2020-07-17T18:00:00');
 
--- LESSON_FILES
-insert into LESSON_FILE(FILE_ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+-- FILES
+insert into FILE(ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
 values ('65462773-84dc-4738-816b-d044409498bf', 'Test file 1', 'txt', STRINGTOUTF8('This is a test file!'),
         'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
-insert into LESSON_FILE(FILE_ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+insert into FILE(ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
 values ('93a86ee9-b655-4d24-aa0d-4e3a051f6111', 'Test file 2', 'doc', STRINGTOUTF8('Test file 2'),
         'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
-insert into LESSON_FILE(FILE_ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+insert into FILE(ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
 values ('1aec4bf9-31ef-4234-8f74-55b2bbf45908', 'Test file 3', 'pptx', STRINGTOUTF8('Test Test Test Test Test'),
         'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
-insert into LESSON_FILE(FILE_ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+insert into FILE(ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
 values ('bdf391a9-fb3f-49ae-9dac-7a5520bfd781', 'Not my file', 'pptx', STRINGTOUTF8('Test Test Test Test Test'),
         'kaminski.bart@dancewithme.pl', '2020-09-18T18:00:00');
-insert into LESSON_FILE(FILE_ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
+insert into FILE(ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
 values ('3f3ab813-25bc-41fb-9e26-3055cfbb9aa2', 'Student file', 'pptx', STRINGTOUTF8('Test Test Test Test Test'),
         'marcin.b@gmail.com', '2020-09-18T18:00:00');
 
--- INDIVIDUAL_LESSON_FILE
-insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+-- LESSON_FILE_ACCESS
+insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
 values ('f0604742-8031-4d8a-b6e4-a9d7faaaaba3', '65462773-84dc-4738-816b-d044409498bf');
-insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
 values ('f0604742-8031-4d8a-b6e4-a9d7faaaaba3', 'bdf391a9-fb3f-49ae-9dac-7a5520bfd781');
-insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
 values ('7d0ae6d0-7da0-4a36-9876-ee8881b9ceae', '65462773-84dc-4738-816b-d044409498bf');
-insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
 values ('7d0ae6d0-7da0-4a36-9876-ee8881b9ceae', '93a86ee9-b655-4d24-aa0d-4e3a051f6111');
-insert into INDIVIDUAL_LESSON_FILE(LESSON_ID, FILE_ID)
+insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
 values ('fce3f15e-6725-4ae6-8665-28cb23e56f92', '3f3ab813-25bc-41fb-9e26-3055cfbb9aa2');

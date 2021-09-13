@@ -8,6 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface TutorRepository extends JpaRepository<TutorEntity, String> {
-
     Optional<TutorEntity> findByAlias(String alias);
 }
