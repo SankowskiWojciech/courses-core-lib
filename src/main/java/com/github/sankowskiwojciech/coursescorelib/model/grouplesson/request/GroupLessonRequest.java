@@ -2,11 +2,13 @@ package com.github.sankowskiwojciech.coursescorelib.model.grouplesson.request;
 
 import com.github.sankowskiwojciech.coursescorelib.model.lesson.request.LessonRequest;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
+@Setter
 public class GroupLessonRequest extends LessonRequest {
     private final String groupId;
 
