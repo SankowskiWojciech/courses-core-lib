@@ -1,11 +1,22 @@
 package com.github.sankowskiwojciech.coursescorelib.model.db.group;
 
-import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
+import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.tutor.TutorEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Getter
@@ -14,7 +25,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Table(name = "GROUP_OF_STUDENTS")
-@EqualsAndHashCode(exclude = {"tutorEntity", "organizationEntity"})
+@EqualsAndHashCode(exclude = {"tutorEntity", "subdomainEntity"})
 public class GroupEntity {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -32,10 +43,10 @@ public class GroupEntity {
     private LocalDateTime creationDateTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ORGANIZATION_ID")
-    private OrganizationEntity organizationEntity;
+    @JoinColumn(name = "SUBDOMAIN_ID", nullable = false, updatable = false)
+    private SubdomainEntity subdomainEntity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TUTOR_ID")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "TUTOR_ID", nullable = false)
     private TutorEntity tutorEntity;
 }
