@@ -5,6 +5,9 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DefaultTestValues {
+    //subdomain
+    public static final String SUBDOMAIN_ALIAS_STUB = "ssit";
+
     //organization
     public static final String ORGANIZATION_ALIAS_STUB = "zslitnr1";
     public static final String ORGANIZATION_NAME_STUB = "Zespół szkół licealnych i technicznych nr 1 w Warszawie";
@@ -43,4 +46,9 @@ public final class DefaultTestValues {
     public static final String FILE_NAME_STUB = "Test file 1";
     public static final String FILE_EXTENSION_STUB = "txt";
     public static final byte[] FILE_CONTENT_STUB = "This is a test file!".getBytes();
+
+    //group
+    public static final String GROUP_ID_STUB = "c3fe86e3-a498-4880-9d15-3d2516951493";
+    public static final String GROUP_NAME_STUB = "English C2";
+    public static final String GROUP_DESCRIPTION_STUB = "Group description";
 }

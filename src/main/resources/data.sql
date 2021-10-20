@@ -55,6 +55,9 @@ values ('02fc3377-25cc-4e92-86f7-230a4654fad0', 'English B2', NULL, '2020-07-17T
 insert into GROUP_OF_STUDENTS(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, SUBDOMAIN_ID, TUTOR_ID)
 values ('31526a5b-3d1f-485e-b035-e1f72dc715fb', 'Grupa Janka', NULL, '2020-07-17T18:00:00', 'zslitnr1',
         'janko@gmail.com');
+insert into GROUP_OF_STUDENTS(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, SUBDOMAIN_ID, TUTOR_ID)
+values ('c3fe86e3-a498-4880-9d15-3d2516951493', 'Test', NULL, '2020-07-17T18:00:00', 'zslitnr1',
+        'sankowski.wojciech@gmail.com');
 
 -- STUDENT GROUP ACCESS
 insert into STUDENT_GROUP_ACCESS(STUDENT_ID, GROUP_ID)

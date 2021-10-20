@@ -6,10 +6,20 @@ import com.github.sankowskiwojciech.coursescorelib.model.subdomain.SubdomainType
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.Set;
+
+import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.SUBDOMAIN_ALIAS_STUB;
+import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SubdomainEntityStub {
+    public static SubdomainEntity create() {
+        Set<SubdomainUserAccessEntity> subdomainUserAccessEntities = new HashSet<>();
+        subdomainUserAccessEntities.add(SubdomainUserAccessEntityStub.create(SUBDOMAIN_ALIAS_STUB, TUTOR_EMAIL_ADDRESS_STUB));
+        return new SubdomainEntity(SUBDOMAIN_ALIAS_STUB, SubdomainType.ORGANIZATION, subdomainUserAccessEntities);
+    }
+
     public static SubdomainEntity create(String subdomainId, SubdomainType subdomainType, Set<SubdomainUserAccessEntity> subdomainUserAccessEntities) {
         return new SubdomainEntity(subdomainId, subdomainType, subdomainUserAccessEntities);
     }
