@@ -10,6 +10,18 @@ insert into TUTOR(EMAIL_ADDRESS, ALIAS, FIRST_NAME, LAST_NAME, DESCRIPTION)
 values ('sankowski.wojciech@gmail.com', 'wsankowski', 'Wojciech', 'Sankowski', 'Java Developer');
 insert into TUTOR(EMAIL_ADDRESS, ALIAS, FIRST_NAME, LAST_NAME, DESCRIPTION)
 values ('kaminski.bart@dancewithme.pl', 'barkam', 'Bartosz', 'Kamiński', 'Profesjonalny tancerz');
+insert into TUTOR(EMAIL_ADDRESS, ALIAS, FIRST_NAME, LAST_NAME, DESCRIPTION)
+values ('janko@gmail.com', 'janko', 'Jan', 'Kowalski', 'Profesjonalny Jan');
+
+-- SUBDOMAIN
+insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
+values ('zslitnr1', 'ORGANIZATION');
+insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
+values ('wsankowski', 'TUTOR');
+insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
+values ('ssit', 'ORGANIZATION');
+insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
+values ('barkam', 'TUTOR');
 
 -- PARENTS
 insert into PARENT(EMAIL_ADDRESS, FIRST_NAME, LAST_NAME)
@@ -34,27 +46,25 @@ insert into STUDENT(EMAIL_ADDRESS, FIRST_NAME, LAST_NAME)
 values ('4rturz@gmail.com', 'Artur', 'Zdun');
 
 -- GROUP OF STUDENTS
-insert into GROUP_OF_STUDENTS(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, ORGANIZATION_ID, TUTOR_ID)
-values ('90cf0d45-700c-4384-84b4-7da0875f9d53', 'English B2', NULL, '2020-07-17T18:00:00', 'info@zslitnr1.pl',
+insert into GROUP_OF_STUDENTS(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, SUBDOMAIN_ID, TUTOR_ID)
+values ('90cf0d45-700c-4384-84b4-7da0875f9d53', 'English B2', NULL, '2020-07-17T18:00:00', 'zslitnr1',
         'sankowski.wojciech@gmail.com');
+insert into GROUP_OF_STUDENTS(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, SUBDOMAIN_ID, TUTOR_ID)
+values ('02fc3377-25cc-4e92-86f7-230a4654fad0', 'English B2', NULL, '2020-07-17T18:00:00', 'ssit',
+        'kaminski.bart@dancewithme.pl');
+insert into GROUP_OF_STUDENTS(ID, NAME, DESCRIPTION, CREATION_DATE_TIME, SUBDOMAIN_ID, TUTOR_ID)
+values ('31526a5b-3d1f-485e-b035-e1f72dc715fb', 'Grupa Janka', NULL, '2020-07-17T18:00:00', 'zslitnr1',
+        'janko@gmail.com');
 
 -- STUDENT GROUP ACCESS
 insert into STUDENT_GROUP_ACCESS(STUDENT_ID, GROUP_ID)
 values ('marcin.b@gmail.com', '90cf0d45-700c-4384-84b4-7da0875f9d53');
 
--- SUBDOMAIN
-insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
-values ('zslitnr1', 'ORGANIZATION');
-insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
-values ('wsankowski', 'TUTOR');
-insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
-values ('ssit', 'ORGANIZATION');
-insert into SUBDOMAIN(SUBDOMAIN_ID, SUBDOMAIN_TYPE)
-values ('barkam', 'TUTOR');
-
 -- SUBDOMAIN USER ACCESSES
 insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
 values ('zslitnr1', 'sankowski.wojciech@gmail.com');
+insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
+values ('zslitnr1', 'janko@gmail.com');
 insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
 values ('wsankowski', 'sankowski.wojciech@gmail.com');
 insert into SUBDOMAIN_USER_ACCESS(SUBDOMAIN_ID, USER_EMAIL_ADDRESS)
