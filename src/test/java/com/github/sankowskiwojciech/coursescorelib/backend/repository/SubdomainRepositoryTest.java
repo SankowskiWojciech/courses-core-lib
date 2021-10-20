@@ -9,10 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_ALIAS_STUB;
-import static org.junit.Assert.*;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_ALIAS_STUB;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

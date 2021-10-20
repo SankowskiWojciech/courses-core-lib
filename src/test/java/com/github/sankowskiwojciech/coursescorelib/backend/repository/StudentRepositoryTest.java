@@ -11,9 +11,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 import java.util.Optional;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.PARENT_EMAIL_ADDRESS_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.STUDENT_EMAIL_ADDRESS_STUB;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.PARENT_EMAIL_ADDRESS_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.STUDENT_EMAIL_ADDRESS_STUB;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

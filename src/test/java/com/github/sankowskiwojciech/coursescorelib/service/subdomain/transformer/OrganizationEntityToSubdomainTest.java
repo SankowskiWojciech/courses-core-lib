@@ -3,7 +3,7 @@ package com.github.sankowskiwojciech.coursescorelib.service.subdomain.transforme
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.Subdomain;
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.SubdomainType;
-import com.github.sankowskiwojciech.coursescorelib.stub.OrganizationEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.OrganizationEntityStub;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

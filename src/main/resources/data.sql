@@ -176,7 +176,7 @@ values ('c41361f8-c0a5-4827-ba8e-f5b56ef61669', 'Lekcja grupowa nr 1', '2021-07-
 
 -- FILES
 insert into FILE(ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
-values ('65462773-84dc-4738-816b-d044409498bf', 'Test file 1', 'txt', STRINGTOUTF8('This is a test file!'),
+values ('65462773-84dc-4738-816b-d044409498bf', 'Test file.pdf', 'pdf', STRINGTOUTF8('This is a test file!'),
         'sankowski.wojciech@gmail.com', '2020-09-18T18:00:00');
 insert into FILE(ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
 values ('93a86ee9-b655-4d24-aa0d-4e3a051f6111', 'Test file 2', 'doc', STRINGTOUTF8('Test file 2'),

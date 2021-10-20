@@ -1,7 +1,7 @@
 package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.token.TokenEntity;
-import com.github.sankowskiwojciech.coursescorelib.stub.TokenEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.TokenEntityStub;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 import java.util.Optional;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TOKEN_VALUE_STUB;
-import static org.junit.Assert.*;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TOKEN_VALUE_STUB;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

@@ -2,7 +2,7 @@ package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.file.FileEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.file.FileWithoutContent;
-import com.github.sankowskiwojciech.coursescorelib.stub.FileEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.FileEntityStub;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,10 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.*;
-import static org.junit.Assert.*;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.FILE_CONTENT_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.FILE_EXTENSION_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.FILE_ID_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.FILE_NAME_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

@@ -2,7 +2,7 @@ package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.lesson.LessonFileAccessEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.lesson.LessonFileAccessEntityId;
-import com.github.sankowskiwojciech.coursescorelib.stub.LessonFileAccessEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.LessonFileAccessEntityStub;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,9 +13,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 import java.util.Optional;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.FILE_ID_STUB;
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.INDIVIDUAL_LESSON_ID_STUB;
-import static org.junit.Assert.*;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.FILE_ID_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.INDIVIDUAL_LESSON_ID_STUB;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

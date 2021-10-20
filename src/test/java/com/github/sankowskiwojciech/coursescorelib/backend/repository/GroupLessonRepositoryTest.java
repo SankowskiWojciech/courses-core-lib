@@ -1,7 +1,7 @@
 package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.grouplesson.GroupLessonEntity;
-import com.github.sankowskiwojciech.coursescorelib.stub.GroupLessonEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.GroupLessonEntityStub;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 

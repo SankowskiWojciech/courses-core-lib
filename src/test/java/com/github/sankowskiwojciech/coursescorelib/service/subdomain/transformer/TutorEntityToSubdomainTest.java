@@ -3,10 +3,12 @@ package com.github.sankowskiwojciech.coursescorelib.service.subdomain.transforme
 import com.github.sankowskiwojciech.coursescorelib.model.db.tutor.TutorEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.Subdomain;
 import com.github.sankowskiwojciech.coursescorelib.model.subdomain.SubdomainType;
-import com.github.sankowskiwojciech.coursescorelib.stub.TutorEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.TutorEntityStub;
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class TutorEntityToSubdomainTest {
     private final TutorEntityToSubdomain testee = TutorEntityToSubdomain.getInstance();

@@ -4,7 +4,10 @@ import com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson.Ind
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.student.StudentEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.tutor.TutorEntity;
-import com.github.sankowskiwojciech.coursescorelib.stub.*;
+import com.github.sankowskiwojciech.coursestestlib.stub.IndividualLessonEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.OrganizationEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.StudentEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.TutorEntityStub;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +20,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-import static com.github.sankowskiwojciech.coursescorelib.DefaultTestValues.*;
-import static org.junit.Assert.*;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.INDIVIDUAL_LESSON_ID_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.ORGANIZATION_EMAIL_ADDRESS_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.STUDENT_EMAIL_ADDRESS_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
