@@ -30,13 +30,13 @@ public class SubdomainServiceImpl implements SubdomainService {
 
     @Override
     public Subdomain readSubdomainInformation(String subdomainAlias) {
-        SubdomainEntity subdomainEntity = readSubdomainEntity(subdomainAlias);
+        SubdomainEntity subdomainEntity = readSubdomain(subdomainAlias);
         return readSubdomainInformation(subdomainEntity);
     }
 
     @Override
     public Subdomain validateIfUserHasAccessToSubdomain(String subdomainAlias, String... userEmailAddresses) {
-        SubdomainEntity subdomainEntity = readSubdomainEntity(subdomainAlias);
+        SubdomainEntity subdomainEntity = readSubdomain(subdomainAlias);
         Set<SubdomainUserAccessEntity> subdomainUserAccessEntities = subdomainEntity.getSubdomainUserAccessEntities();
         Arrays.asList(userEmailAddresses).forEach(userEmailAddress -> {
             if (subdomainUserAccessEntities.stream().noneMatch(subdomainUserAccessEntity -> userEmailAddress.equals(subdomainUserAccessEntity.getSubdomainUserAccessEntityId().getUserEmailAddress()))) {
@@ -46,7 +46,8 @@ public class SubdomainServiceImpl implements SubdomainService {
         return readSubdomainInformation(subdomainEntity);
     }
 
-    private SubdomainEntity readSubdomainEntity(String subdomainAlias) {
+    @Override
+    public SubdomainEntity readSubdomain(String subdomainAlias) {
         if (StringUtils.isBlank(subdomainAlias)) {
             throw new SubdomainNotFoundException();
         }
