@@ -12,8 +12,8 @@ import java.util.List;
 public class GroupLessonRequest extends LessonRequest {
     private final String groupId;
 
-    public GroupLessonRequest(String title, LocalDateTime startDate, LocalDateTime endDate, String description, String subdomainAlias, String tutorId, List<String> filesIds, String groupId) {
-        super(title, startDate, endDate, description, subdomainAlias, tutorId, filesIds);
+    public GroupLessonRequest(String title, LocalDateTime startDate, LocalDateTime endDate, String description, String subdomainAlias, List<String> filesIds, String groupId) {
+        super(title, startDate, endDate, description, subdomainAlias, filesIds);
         this.groupId = groupId;
     }
 }
