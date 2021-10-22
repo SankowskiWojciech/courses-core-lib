@@ -12,17 +12,17 @@ public abstract class LessonResponse {
     private final LocalDateTime startDate;
     private final LocalDateTime endDate;
     private final String description;
-    private final String subdomainName;
+    private final String subdomainAlias;
     private final String tutorEmailAddress;
     private final List<LessonFileResponse> filesInformation;
 
-    public LessonResponse(String id, String title, LocalDateTime startDate, LocalDateTime endDate, String description, String subdomainName, String tutorEmailAddress, List<LessonFileResponse> filesInformation) {
+    public LessonResponse(String id, String title, LocalDateTime startDate, LocalDateTime endDate, String description, String subdomainAlias, String tutorEmailAddress, List<LessonFileResponse> filesInformation) {
         this.id = id;
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
         this.description = description;
-        this.subdomainName = subdomainName;
+        this.subdomainAlias = subdomainAlias;
         this.tutorEmailAddress = tutorEmailAddress;
         this.filesInformation = filesInformation;
     }

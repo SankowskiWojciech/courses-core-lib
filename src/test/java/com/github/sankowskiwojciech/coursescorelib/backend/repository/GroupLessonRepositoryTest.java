@@ -1,7 +1,13 @@
 package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
+import com.github.sankowskiwojciech.coursescorelib.model.db.group.GroupEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.grouplesson.GroupLessonEntity;
+import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainEntity;
+import com.github.sankowskiwojciech.coursescorelib.model.db.tutor.TutorEntity;
+import com.github.sankowskiwojciech.coursestestlib.stub.GroupEntityStub;
 import com.github.sankowskiwojciech.coursestestlib.stub.GroupLessonEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.SubdomainEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.TutorEntityStub;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +19,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -31,6 +38,26 @@ public class GroupLessonRepositoryTest {
 
         //then
         assertFalse(entities.isEmpty());
+    }
+
+    @Test
+    public void shouldSaveEntityCorrectly() {
+        //given
+        SubdomainEntity subdomainEntityStub = SubdomainEntityStub.create();
+        TutorEntity tutorEntityStub = TutorEntityStub.create();
+        GroupEntity groupEntity = GroupEntityStub.create();
+        GroupLessonEntity entityStub = GroupLessonEntityStub.createWithExternalEntities(subdomainEntityStub, tutorEntityStub, groupEntity);
+
+        //when
+        GroupLessonEntity savedEntity = testee.save(entityStub);
+
+        //then
+        assertNotNull(savedEntity);
+        assertEquals(entityStub.getId(), savedEntity.getId());
+        assertEquals(entityStub.getTitle(), savedEntity.getTitle());
+        assertEquals(entityStub.getStartDate(), savedEntity.getStartDate());
+        assertEquals(entityStub.getEndDate(), savedEntity.getEndDate());
+        assertEquals(entityStub.getDescription(), savedEntity.getDescription());
     }
 
     @Test

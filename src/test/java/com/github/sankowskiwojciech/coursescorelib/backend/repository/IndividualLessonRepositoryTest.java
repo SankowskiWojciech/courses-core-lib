@@ -1,12 +1,12 @@
 package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
 import com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson.IndividualLessonEntity;
-import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.student.StudentEntity;
+import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.tutor.TutorEntity;
 import com.github.sankowskiwojciech.coursestestlib.stub.IndividualLessonEntityStub;
-import com.github.sankowskiwojciech.coursestestlib.stub.OrganizationEntityStub;
 import com.github.sankowskiwojciech.coursestestlib.stub.StudentEntityStub;
+import com.github.sankowskiwojciech.coursestestlib.stub.SubdomainEntityStub;
 import com.github.sankowskiwojciech.coursestestlib.stub.TutorEntityStub;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.INDIVIDUAL_LESSON_ID_STUB;
-import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.ORGANIZATION_EMAIL_ADDRESS_STUB;
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.ORGANIZATION_ALIAS_STUB;
 import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.STUDENT_EMAIL_ADDRESS_STUB;
 import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
 import static org.junit.Assert.assertEquals;
@@ -50,7 +50,7 @@ public class IndividualLessonRepositoryTest {
     public void shouldFindEntityByIdCorrectly() {
         //given
         String idStub = INDIVIDUAL_LESSON_ID_STUB;
-        String organizationEmailAddressStub = ORGANIZATION_EMAIL_ADDRESS_STUB;
+        String subdomainAlias = ORGANIZATION_ALIAS_STUB;
         String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
         String studentEmailAddressStub = STUDENT_EMAIL_ADDRESS_STUB;
 
@@ -62,9 +62,9 @@ public class IndividualLessonRepositoryTest {
         IndividualLessonEntity entity = entityOptional.get();
         assertEquals(idStub, entity.getId());
 
-        OrganizationEntity organizationEntity = entity.getOrganizationEntity();
-        assertNotNull(organizationEntity);
-        assertEquals(organizationEmailAddressStub, organizationEntity.getEmailAddress());
+        SubdomainEntity subdomainEntity = entity.getSubdomainEntity();
+        assertNotNull(subdomainEntity);
+        assertEquals(subdomainAlias, subdomainEntity.getSubdomainId());
 
         TutorEntity tutorEntity = entity.getTutorEntity();
         assertNotNull(tutorEntity);
@@ -78,10 +78,10 @@ public class IndividualLessonRepositoryTest {
     @Test
     public void shouldSaveEntityCorrectly() {
         //given
-        OrganizationEntity organizationEntityStub = OrganizationEntityStub.create();
+        SubdomainEntity subdomainEntityStub = SubdomainEntityStub.create();
         TutorEntity tutorEntityStub = TutorEntityStub.create();
         StudentEntity studentEntityStub = StudentEntityStub.create();
-        IndividualLessonEntity entityStub = IndividualLessonEntityStub.createWithExternalEntities(organizationEntityStub, tutorEntityStub, studentEntityStub);
+        IndividualLessonEntity entityStub = IndividualLessonEntityStub.createWithExternalEntities(subdomainEntityStub, tutorEntityStub, studentEntityStub);
 
         //when
         IndividualLessonEntity savedEntity = testee.save(entityStub);

@@ -130,48 +130,50 @@ values ('token7', 'tokenIsValidForAnotherTutor', 'kaminski.bart@dancewithme.pl',
         '2020-07-18T18:21:14.144', '2220-07-18T18:21:14.144');
 
 -- INDIVIDUAL LESSONS
-insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, ORGANIZATION_ID, TUTOR_ID, STUDENT_ID,
+insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, STUDENT_ID,
                               CREATION_DATE_TIME)
 values (CAST('f0604742-8031-4d8a-b6e4-a9d7faaaaba3' AS VARCHAR), 'Lekcja 1', '2020-07-18T18:00:00',
-        '2020-07-18T20:00:00', 'Opis lekcji', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com', 'marcin.b@gmail.com',
+        '2020-07-18T20:00:00', 'Opis lekcji', 'zslitnr1', 'sankowski.wojciech@gmail.com', 'marcin.b@gmail.com',
         '2020-07-17T18:00:00');
-insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, ORGANIZATION_ID, TUTOR_ID, STUDENT_ID,
+insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, STUDENT_ID,
                               CREATION_DATE_TIME)
 values ('93ec0365-1c31-4fb3-b90b-b92d89ea8cfa', 'Lekcja 2', '2020-07-20T18:00:00', '2020-07-20T20:00:00', 'Opis lekcji',
-        'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com', 'marcin.b@gmail.com', '2020-07-19T18:00:00');
-insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, TUTOR_ID, STUDENT_ID, CREATION_DATE_TIME)
+        'zslitnr1', 'sankowski.wojciech@gmail.com', 'marcin.b@gmail.com', '2020-07-19T18:00:00');
+insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, STUDENT_ID,
+                              CREATION_DATE_TIME)
 values ('21809b9c-1cf6-482f-a67f-6283c23a85f8', 'Lekcja indywidualna bardzo', '2020-07-20T14:00:00',
-        '2020-07-20T15:00:00', 'Opis lekcji', 'sankowski.wojciech@gmail.com', 'marcin.b@gmail.com',
+        '2020-07-20T15:00:00', 'Opis lekcji', 'wsankowski', 'sankowski.wojciech@gmail.com', 'marcin.b@gmail.com',
         '2020-07-20T12:00:00');
-insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, TUTOR_ID, STUDENT_ID, CREATION_DATE_TIME)
+insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, STUDENT_ID,
+                              CREATION_DATE_TIME)
 values ('f88ec986-e473-48d2-85fe-1eecaa39f10a', 'Lekcja indywidualna nr 2', '2020-07-21T14:00:00',
-        '2020-07-21T16:00:00', 'Opis lekcji', 'sankowski.wojciech@gmail.com', 'rawskaka@gmail.com',
+        '2020-07-21T16:00:00', 'Opis lekcji', 'wsankowski', 'sankowski.wojciech@gmail.com', 'rawskaka@gmail.com',
         '2020-07-21T10:00:00');
-insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, ORGANIZATION_ID, TUTOR_ID, STUDENT_ID,
+insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, STUDENT_ID,
                               CREATION_DATE_TIME)
 values ('7d0ae6d0-7da0-4a36-9876-ee8881b9ceae', 'Lekcja 3', '2020-07-21T18:00:00', '2020-07-21T20:30:00', 'Opis lekcji',
-        'not.spam@dancewithme.pl', 'kaminski.bart@dancewithme.pl', 'marcin.b@gmail.com', '2020-07-15T18:00:00');
-insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, ORGANIZATION_ID, TUTOR_ID, STUDENT_ID,
+        'ssit', 'kaminski.bart@dancewithme.pl', 'marcin.b@gmail.com', '2020-07-15T18:00:00');
+insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, STUDENT_ID,
                               CREATION_DATE_TIME)
 values ('fce3f15e-6725-4ae6-8665-28cb23e56f92', 'Angular routing część 1', '2020-09-18T18:00:00', '2020-09-18T19:00:00',
-        'Kurs dotyczący routingu w Angularze 9+', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com',
+        'Kurs dotyczący routingu w Angularze 9+', 'zslitnr1', 'sankowski.wojciech@gmail.com',
         'rawskaka@gmail.com', '2020-07-17T18:00:00');
-insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, ORGANIZATION_ID, TUTOR_ID, STUDENT_ID,
+insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, STUDENT_ID,
                               CREATION_DATE_TIME)
 values ('0c02bcf0-f5a7-40d7-a04b-80e5fbbff57e', 'Angular routing część 2', '2020-09-19T18:00:00', '2020-09-19T20:00:00',
-        'Kontynuacja kursu dotyczący routingu w Angularze 9+', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com',
+        'Kontynuacja kursu dotyczący routingu w Angularze 9+', 'zslitnr1', 'sankowski.wojciech@gmail.com',
         'rawskaka@gmail.com', '2020-07-17T18:00:00');
-insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, ORGANIZATION_ID, TUTOR_ID, STUDENT_ID,
+insert into INDIVIDUAL_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, STUDENT_ID,
                               CREATION_DATE_TIME)
 values ('3945d30e-dc54-4f7c-a99a-ecb1219b5b18', 'Angular template-driven forms', '2020-09-18T18:00:00',
-        '2020-09-18T21:00:00', 'Template-driven forms w pigułce.', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com',
+        '2020-09-18T21:00:00', 'Template-driven forms w pigułce.', 'zslitnr1', 'sankowski.wojciech@gmail.com',
         'rawskaka@gmail.com', '2020-07-17T18:00:00');
 
 -- GROUP LESSONS
-insert into GROUP_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, ORGANIZATION_ID, TUTOR_ID, GROUP_ID,
+insert into GROUP_LESSON(ID, TITLE, START_DATE, END_DATE, DESCRIPTION, SUBDOMAIN_ID, TUTOR_ID, GROUP_ID,
                          CREATION_DATE_TIME)
 values ('c41361f8-c0a5-4827-ba8e-f5b56ef61669', 'Lekcja grupowa nr 1', '2021-07-18T18:00:00', '2021-07-18T20:00:00',
-        'Opis pierwszej lekcji grupowej.', 'info@zslitnr1.pl', 'sankowski.wojciech@gmail.com',
+        'Opis pierwszej lekcji grupowej.', 'zslitnr1', 'sankowski.wojciech@gmail.com',
         '90cf0d45-700c-4384-84b4-7da0875f9d53', '2020-07-17T18:00:00');
 
 -- FILES

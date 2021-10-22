@@ -11,8 +11,8 @@ import java.util.List;
 public class GroupLessonResponse extends LessonResponse {
     private final String groupName;
 
-    public GroupLessonResponse(String lessonId, String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainName, String tutorEmailAddress, List<LessonFileResponse> filesInformation, String groupName) {
-        super(lessonId, title, startDateOfLesson, endDateOfLesson, description, subdomainName, tutorEmailAddress, filesInformation);
+    public GroupLessonResponse(String lessonId, String title, LocalDateTime startDateOfLesson, LocalDateTime endDateOfLesson, String description, String subdomainAlias, String tutorEmailAddress, List<LessonFileResponse> filesInformation, String groupName) {
+        super(lessonId, title, startDateOfLesson, endDateOfLesson, description, subdomainAlias, tutorEmailAddress, filesInformation);
         this.groupName = groupName;
     }
 }

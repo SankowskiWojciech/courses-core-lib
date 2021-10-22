@@ -41,7 +41,5 @@ public class OrganizationRepositoryTest {
 
         //then
         assertTrue(entityOptional.isPresent());
-        OrganizationEntity entity = entityOptional.get();
-        assertFalse(entity.getIndividualLessons().isEmpty());
     }
 }

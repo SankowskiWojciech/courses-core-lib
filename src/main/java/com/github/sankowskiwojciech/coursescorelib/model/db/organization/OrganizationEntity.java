@@ -1,10 +1,15 @@
 package com.github.sankowskiwojciech.coursescorelib.model.db.organization;
 
-import com.github.sankowskiwojciech.coursescorelib.model.db.individuallesson.IndividualLessonEntity;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Getter
 @AllArgsConstructor
@@ -32,7 +37,4 @@ public class OrganizationEntity {
 
     @Column(name = "WEBSITE_URL", length = 30)
     private String websiteUrl;
-
-    @OneToMany(mappedBy = "organizationEntity")
-    private Set<IndividualLessonEntity> individualLessons;
 }
