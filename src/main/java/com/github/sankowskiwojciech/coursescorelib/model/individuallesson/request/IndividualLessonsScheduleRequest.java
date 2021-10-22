@@ -12,8 +12,8 @@ import java.util.List;
 public class IndividualLessonsScheduleRequest extends LessonsScheduleRequest {
     private final String studentId;
 
-    public IndividualLessonsScheduleRequest(LocalDate beginningDate, LocalDate endDate, ScheduleType scheduleType, Long allLessonsDurationInMinutes, List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes, List<String> lessonsTitles, String subdomainAlias, String tutorId, String studentId) {
-        super(beginningDate, endDate, scheduleType, allLessonsDurationInMinutes, lessonsDaysOfWeekWithTimes, lessonsTitles, subdomainAlias, tutorId);
+    public IndividualLessonsScheduleRequest(LocalDate beginningDate, LocalDate endDate, ScheduleType scheduleType, Long allLessonsDurationInMinutes, List<DayOfWeekWithTimes> lessonsDaysOfWeekWithTimes, List<String> lessonsTitles, String subdomainAlias, String studentId) {
+        super(beginningDate, endDate, scheduleType, allLessonsDurationInMinutes, lessonsDaysOfWeekWithTimes, lessonsTitles, subdomainAlias);
         this.studentId = studentId;
     }
 }

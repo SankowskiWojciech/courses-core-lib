@@ -16,10 +16,8 @@ public abstract class LessonsScheduleRequest {
     private final List<DayOfWeekWithTimes> daysOfWeekWithTimes;
     private final List<String> titles;
     private final String subdomainAlias;
-    private final String tutorId;
 
-
-    public LessonsScheduleRequest(LocalDate beginningDate, LocalDate endDate, ScheduleType scheduleType, Long durationOfAllLessonsInMinutes, List<DayOfWeekWithTimes> daysOfWeekWithTimes, List<String> titles, String subdomainAlias, String tutorId) {
+    public LessonsScheduleRequest(LocalDate beginningDate, LocalDate endDate, ScheduleType scheduleType, Long durationOfAllLessonsInMinutes, List<DayOfWeekWithTimes> daysOfWeekWithTimes, List<String> titles, String subdomainAlias) {
         this.beginningDate = beginningDate;
         this.endDate = endDate;
         this.scheduleType = scheduleType;
@@ -27,6 +25,5 @@ public abstract class LessonsScheduleRequest {
         this.daysOfWeekWithTimes = daysOfWeekWithTimes;
         this.titles = titles;
         this.subdomainAlias = subdomainAlias;
-        this.tutorId = tutorId;
     }
 }
