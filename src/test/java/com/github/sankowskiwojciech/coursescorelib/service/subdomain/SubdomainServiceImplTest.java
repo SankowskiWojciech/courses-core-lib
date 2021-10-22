@@ -30,7 +30,6 @@ import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTO
 import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -50,7 +49,7 @@ public class SubdomainServiceImplTest {
     public void shouldThrowSubdomainNotFoundExceptionWhenSubdomainDoesNotExist() {
         //given
         String subdomainAliasStub = UUID.randomUUID().toString();
-        when(subdomainRepositoryMock.findById(eq(subdomainAliasStub))).thenReturn(Optional.empty());
+        when(subdomainRepositoryMock.findById(subdomainAliasStub)).thenReturn(Optional.empty());
 
         //when
         try {
@@ -58,7 +57,7 @@ public class SubdomainServiceImplTest {
         } catch (SubdomainNotFoundException e) {
 
             //then exception is thrown
-            verify(subdomainRepositoryMock).findById(eq(subdomainAliasStub));
+            verify(subdomainRepositoryMock).findById(subdomainAliasStub);
             throw e;
         }
     }
@@ -71,14 +70,14 @@ public class SubdomainServiceImplTest {
         SubdomainEntity subdomainEntityStub = SubdomainEntityStub.create(subdomainAliasStub, SubdomainType.ORGANIZATION, Collections.emptySet());
 
         when(subdomainRepositoryMock.findById(subdomainAliasStub)).thenReturn(Optional.of(subdomainEntityStub));
-        when(organizationRepositoryMock.findByAlias(eq(subdomainAliasStub))).thenReturn(Optional.of(organizationEntityStub));
+        when(organizationRepositoryMock.findByAlias(subdomainAliasStub)).thenReturn(Optional.of(organizationEntityStub));
 
         //when
         Subdomain subdomain = testee.readSubdomainInformation(subdomainAliasStub);
 
         //then nothing happens
-        verify(subdomainRepositoryMock).findById(eq(subdomainAliasStub));
-        verify(organizationRepositoryMock).findByAlias(eq(subdomainAliasStub));
+        verify(subdomainRepositoryMock).findById(subdomainAliasStub);
+        verify(organizationRepositoryMock).findByAlias(subdomainAliasStub);
 
         assertNotNull(subdomain);
     }
@@ -91,14 +90,14 @@ public class SubdomainServiceImplTest {
         SubdomainEntity subdomainEntityStub = SubdomainEntityStub.create(subdomainAliasStub, SubdomainType.TUTOR, Collections.emptySet());
 
         when(subdomainRepositoryMock.findById(subdomainAliasStub)).thenReturn(Optional.of(subdomainEntityStub));
-        when(tutorRepositoryMock.findByAlias(eq(subdomainAliasStub))).thenReturn(Optional.of(tutorEntityStub));
+        when(tutorRepositoryMock.findByAlias(subdomainAliasStub)).thenReturn(Optional.of(tutorEntityStub));
 
         //when
         Subdomain subdomain = testee.readSubdomainInformation(subdomainAliasStub);
 
         //then nothing happens
-        verify(subdomainRepositoryMock).findById(eq(subdomainAliasStub));
-        verify(tutorRepositoryMock).findByAlias(eq(subdomainAliasStub));
+        verify(subdomainRepositoryMock).findById(subdomainAliasStub);
+        verify(tutorRepositoryMock).findByAlias(subdomainAliasStub);
 
         assertNotNull(subdomain);
     }
@@ -109,15 +108,15 @@ public class SubdomainServiceImplTest {
         String subdomainAliasStub = ORGANIZATION_ALIAS_STUB;
         String userEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
         SubdomainEntity subdomainEntityStub = SubdomainEntityStub.create(subdomainAliasStub, SubdomainType.ORGANIZATION, Collections.emptySet());
-        when(subdomainRepositoryMock.findById(eq(subdomainAliasStub))).thenReturn(Optional.of(subdomainEntityStub));
+        when(subdomainRepositoryMock.findById(subdomainAliasStub)).thenReturn(Optional.of(subdomainEntityStub));
 
         //when
         try {
-            testee.validateIfUserIsAllowedToLoginToSubdomain(subdomainAliasStub, userEmailAddressStub);
+            testee.validateIfUserHasAccessToSubdomain(subdomainAliasStub, userEmailAddressStub);
         } catch (UserNotAllowedToAccessSubdomainException e) {
 
             //then exception is thrown
-            verify(subdomainRepositoryMock).findById(eq(subdomainAliasStub));
+            verify(subdomainRepositoryMock).findById(subdomainAliasStub);
             throw e;
         }
     }
@@ -131,15 +130,15 @@ public class SubdomainServiceImplTest {
         SubdomainEntity subdomainEntityStub = SubdomainEntityStub.create(subdomainAliasStub, SubdomainType.ORGANIZATION, subdomainUserAccessEntities);
         OrganizationEntity organizationEntityStub = OrganizationEntityStub.create();
 
-        when(subdomainRepositoryMock.findById(eq(subdomainAliasStub))).thenReturn(Optional.of(subdomainEntityStub));
-        when(organizationRepositoryMock.findByAlias(eq(subdomainAliasStub))).thenReturn(Optional.of(organizationEntityStub));
+        when(subdomainRepositoryMock.findById(subdomainAliasStub)).thenReturn(Optional.of(subdomainEntityStub));
+        when(organizationRepositoryMock.findByAlias(subdomainAliasStub)).thenReturn(Optional.of(organizationEntityStub));
 
         //when
-        Subdomain subdomain = testee.validateIfUserIsAllowedToLoginToSubdomain(subdomainAliasStub, userEmailAddressStub);
+        Subdomain subdomain = testee.validateIfUserHasAccessToSubdomain(subdomainAliasStub, userEmailAddressStub);
 
         //then nothing happens
-        verify(subdomainRepositoryMock).findById(eq(subdomainAliasStub));
-        verify(organizationRepositoryMock).findByAlias(eq(subdomainAliasStub));
+        verify(subdomainRepositoryMock).findById(subdomainAliasStub);
+        verify(organizationRepositoryMock).findByAlias(subdomainAliasStub);
 
         assertNotNull(subdomain);
         assertEquals(subdomainAliasStub, subdomain.getAlias());

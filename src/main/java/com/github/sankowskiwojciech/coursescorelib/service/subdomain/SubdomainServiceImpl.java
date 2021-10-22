@@ -1,6 +1,8 @@
 package com.github.sankowskiwojciech.coursescorelib.service.subdomain;
 
-import com.github.sankowskiwojciech.coursescorelib.backend.repository.*;
+import com.github.sankowskiwojciech.coursescorelib.backend.repository.OrganizationRepository;
+import com.github.sankowskiwojciech.coursescorelib.backend.repository.SubdomainRepository;
+import com.github.sankowskiwojciech.coursescorelib.backend.repository.TutorRepository;
 import com.github.sankowskiwojciech.coursescorelib.model.db.organization.OrganizationEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.subdomain.SubdomainUserAccessEntity;
@@ -15,7 +17,9 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -31,7 +35,7 @@ public class SubdomainServiceImpl implements SubdomainService {
     }
 
     @Override
-    public Subdomain validateIfUserIsAllowedToLoginToSubdomain(String subdomainAlias, String... userEmailAddresses) {
+    public Subdomain validateIfUserHasAccessToSubdomain(String subdomainAlias, String... userEmailAddresses) {
         SubdomainEntity subdomainEntity = readSubdomainEntity(subdomainAlias);
         Set<SubdomainUserAccessEntity> subdomainUserAccessEntities = subdomainEntity.getSubdomainUserAccessEntities();
         Arrays.asList(userEmailAddresses).forEach(userEmailAddress -> {
