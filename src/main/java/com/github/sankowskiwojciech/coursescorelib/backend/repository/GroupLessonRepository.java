@@ -14,4 +14,7 @@ import java.util.List;
 public interface GroupLessonRepository extends JpaRepository<GroupLessonEntity, String>, QuerydslPredicateExecutor<GroupLessonEntity> {
     @Query("SELECT lesson FROM GroupLessonEntity lesson WHERE :startDate < lesson.endDate AND :endDate > lesson.startDate AND lesson.tutorEntity.emailAddress = :tutorEmailAddress")
     List<GroupLessonEntity> findAllLessonsWhichCanCollideWithNewLesson(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate, @Param("tutorEmailAddress") String tutorEmailAddress);
+
+    @Query("SELECT lesson FROM GroupLessonEntity lesson WHERE lesson.startDate >= :startDateOfLesson AND lesson.endDate <= :endDateOfLesson AND lesson.tutorEntity.emailAddress = :tutorEmailAddress")
+    List<GroupLessonEntity> findAllLessonsInRangeForTutor(@Param("startDateOfLesson") LocalDateTime startDateOfLesson, @Param("endDateOfLesson") LocalDateTime endDateOfLesson, @Param("tutorEmailAddress") String tutorEmailAddress);
 }

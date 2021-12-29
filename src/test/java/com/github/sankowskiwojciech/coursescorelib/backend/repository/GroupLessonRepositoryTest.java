@@ -8,20 +8,20 @@ import com.github.sankowskiwojciech.coursestestlib.stub.GroupEntityStub;
 import com.github.sankowskiwojciech.coursestestlib.stub.GroupLessonEntityStub;
 import com.github.sankowskiwojciech.coursestestlib.stub.SubdomainEntityStub;
 import com.github.sankowskiwojciech.coursestestlib.stub.TutorEntityStub;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -78,6 +78,25 @@ public class GroupLessonRepositoryTest {
 
         //then
         assertNotNull(entities);
-        Assert.assertFalse(entities.isEmpty());
+        assertFalse(entities.isEmpty());
+    }
+
+    @Test
+    public void shouldFindAllIndividualLessonsInRangeForTutor() {
+        //given
+        final LocalDateTime currentDate = LocalDate.now().atStartOfDay();
+        LocalDateTime existingLessonStartDate = currentDate.minusDays(2);
+        LocalDateTime existingLessonEndDate = currentDate.plusDays(3);
+        GroupLessonEntity existingLessonStub = GroupLessonEntityStub.createWithDatesOfLesson(currentDate, currentDate.plusHours(2));
+        String tutorEmailAddressStub = TUTOR_EMAIL_ADDRESS_STUB;
+
+        testee.save(existingLessonStub);
+
+        //when
+        List<GroupLessonEntity> entities = testee.findAllLessonsInRangeForTutor(existingLessonStartDate, existingLessonEndDate, tutorEmailAddressStub);
+
+        //then
+        assertNotNull(entities);
+        assertFalse(entities.isEmpty());
     }
 }
