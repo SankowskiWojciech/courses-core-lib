@@ -35,4 +35,11 @@ public class FileUserPermissionsEntity {
 
     @Column(name = "MODIFIED_BY")
     private String modifiedBy;
+
+    public FileUserPermissionsEntity(FileUserPermissionsEntityId fileUserPermissionsEntityId, boolean canRead, boolean canModify, boolean canDelete) {
+        this.fileUserPermissionsEntityId = fileUserPermissionsEntityId;
+        this.canRead = canRead;
+        this.canModify = canModify;
+        this.canDelete = canDelete;
+    }
 }
