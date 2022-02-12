@@ -193,7 +193,7 @@ insert into FILE(ID, NAME, EXTENSION, CONTENT, CREATED_BY, CREATION_DATE_TIME)
 values ('3f3ab813-25bc-41fb-9e26-3055cfbb9aa2', 'Student file', 'pptx', STRINGTOUTF8('Test Test Test Test Test'),
         'marcin.b@gmail.com', '2020-09-18T18:00:00');
 
--- LESSON_FILE_ACCESS
+-- LESSON FILE ACCESS
 insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
 values ('f0604742-8031-4d8a-b6e4-a9d7faaaaba3', '65462773-84dc-4738-816b-d044409498bf');
 insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
@@ -204,3 +204,7 @@ insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
 values ('7d0ae6d0-7da0-4a36-9876-ee8881b9ceae', '93a86ee9-b655-4d24-aa0d-4e3a051f6111');
 insert into LESSON_FILE_ACCESS(LESSON_ID, FILE_ID)
 values ('fce3f15e-6725-4ae6-8665-28cb23e56f92', '3f3ab813-25bc-41fb-9e26-3055cfbb9aa2');
+
+-- FILE USER PERMISSIONS
+insert into FILE_USER_PERMISSIONS (FILE_ID, USER_ID, CAN_READ, CAN_MODIFY, CAN_DELETE)
+values ('65462773-84dc-4738-816b-d044409498bf', 'sankowski.wojciech@gmail.com', true, false, true);
