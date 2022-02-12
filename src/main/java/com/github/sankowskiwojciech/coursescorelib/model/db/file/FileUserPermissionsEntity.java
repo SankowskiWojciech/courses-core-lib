@@ -11,13 +11,13 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "FILE_USER_PERMISSIONS")
 @EqualsAndHashCode(of = "fileUserPermissionsEntityId")
 public class FileUserPermissionsEntity {
+    @Getter
     @EmbeddedId
     private FileUserPermissionsEntityId fileUserPermissionsEntityId;
 
@@ -30,9 +30,11 @@ public class FileUserPermissionsEntity {
     @Column(name = "CAN_DELETE", nullable = false)
     private boolean canDelete = false;
 
+    @Getter
     @Column(name = "MODIFICATION_DATE_TIME")
     private LocalDateTime modificationDateTime;
 
+    @Getter
     @Column(name = "MODIFIED_BY")
     private String modifiedBy;
 
@@ -41,5 +43,17 @@ public class FileUserPermissionsEntity {
         this.canRead = canRead;
         this.canModify = canModify;
         this.canDelete = canDelete;
+    }
+
+    public boolean canRead() {
+        return canRead;
+    }
+
+    public boolean canModify() {
+        return canModify;
+    }
+
+    public boolean canDelete() {
+        return canDelete;
     }
 }
