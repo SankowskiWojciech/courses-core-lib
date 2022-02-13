@@ -71,19 +71,6 @@ public class LessonFileAccessRepositoryTest {
     }
 
     @Test
-    public void shouldFindAllEntitiesByFileIdCorrectly() {
-        //given
-        String idStub = FILE_ID_STUB;
-
-        //when
-        List<LessonFileAccessEntity> entities = testee.findAllByFileId(idStub);
-
-        //then
-        assertNotNull(entities);
-        assertFalse(entities.isEmpty());
-    }
-
-    @Test
     public void shouldFindAllEntitiesByLessonIdFromListCorrectly() {
         //given
         List<String> idStubs = Lists.newArrayList("f0604742-8031-4d8a-b6e4-a9d7faaaaba3", "7d0ae6d0-7da0-4a36-9876-ee8881b9ceae");

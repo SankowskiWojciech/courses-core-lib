@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
+import static com.github.sankowskiwojciech.coursestestlib.DefaultTestValues.TUTOR_EMAIL_ADDRESS_STUB;
 import static org.junit.Assert.assertFalse;
 
 @RunWith(SpringRunner.class)
@@ -23,6 +24,18 @@ public class FileUserPermissionsRepositoryTest {
 
         //when
         List<FileUserPermissionsEntity> entities = testee.findAll();
+
+        //then
+        assertFalse(entities.isEmpty());
+    }
+
+    @Test
+    public void shouldFindAllEntitiesByUserIdAndCanReadTrue() {
+        //given
+        String userIdStub = TUTOR_EMAIL_ADDRESS_STUB;
+
+        //when
+        List<FileUserPermissionsEntity> entities = testee.findAllByFileUserPermissionsEntityIdUserIdAndCanReadIsTrue(userIdStub);
 
         //then
         assertFalse(entities.isEmpty());

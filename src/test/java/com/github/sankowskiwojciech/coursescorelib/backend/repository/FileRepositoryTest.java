@@ -80,30 +80,4 @@ public class FileRepositoryTest {
         assertNotNull(files);
         assertFalse(files.isEmpty());
     }
-
-    @Test
-    public void shouldGetFileOwnerCorrectly() {
-        //given
-        String fileIdStub = FILE_ID_STUB;
-
-        //when
-        String fileOwnerId = testee.getFileOwnerIdByFileId(fileIdStub);
-
-        //then
-        assertEquals(TUTOR_EMAIL_ADDRESS_STUB, fileOwnerId);
-    }
-
-    @Test
-    public void shouldFindAllByCreatedByCorrectly() {
-        //given
-        String fileOwnerIdStub = TUTOR_EMAIL_ADDRESS_STUB;
-
-        //when
-        List<FileWithoutContent> files = testee.findAllByCreatedBy(fileOwnerIdStub);
-
-        //then
-        assertNotNull(files);
-        assertFalse(files.isEmpty());
-        assertEquals(FIND_ALL_BY_CREATED_BY_EXPECTED_LIST_SIZE, files.size());
-    }
 }

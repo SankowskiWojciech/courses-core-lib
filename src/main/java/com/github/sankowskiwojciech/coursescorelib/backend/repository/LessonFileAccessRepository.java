@@ -11,7 +11,5 @@ import java.util.List;
 public interface LessonFileAccessRepository extends JpaRepository<LessonFileAccessEntity, LessonFileAccessEntityId> {
     List<LessonFileAccessEntity> findAllByLessonId(String lessonId);
 
-    List<LessonFileAccessEntity> findAllByFileId(String fileId);
-
     List<LessonFileAccessEntity> findAllByLessonIdIn(List<String> lessonsIds);
 }
