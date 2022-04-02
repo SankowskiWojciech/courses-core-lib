@@ -1,8 +1,6 @@
 package com.github.sankowskiwojciech.coursescorelib.backend.repository;
 
-import com.github.sankowskiwojciech.coursescorelib.model.db.group.GroupEntity;
 import com.github.sankowskiwojciech.coursescorelib.model.db.group.StudentGroupAccessEntity;
-import com.github.sankowskiwojciech.coursestestlib.stub.GroupEntityStub;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,10 +33,9 @@ public class StudentGroupAccessRepositoryTest {
     public void shouldFindAllEntitiesByGroupEntityCorrectly() {
         //given
         String groupIdStub = "90cf0d45-700c-4384-84b4-7da0875f9d53";
-        GroupEntity groupEntityStub = GroupEntityStub.createWithId(groupIdStub);
 
         //when
-        List<StudentGroupAccessEntity> entities = testee.findAllByGroupEntity(groupEntityStub);
+        List<StudentGroupAccessEntity> entities = testee.findAllByStudentGroupAccessEntityIdGroupId(groupIdStub);
 
         //then
         assertFalse(entities.isEmpty());
