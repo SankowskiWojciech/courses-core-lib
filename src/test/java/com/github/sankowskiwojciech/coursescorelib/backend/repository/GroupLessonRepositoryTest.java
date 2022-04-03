@@ -53,7 +53,7 @@ public class GroupLessonRepositoryTest {
 
         //then
         assertNotNull(savedEntity);
-        assertEquals(entityStub.getId(), savedEntity.getId());
+        assertNotNull(savedEntity.getId());
         assertEquals(entityStub.getTitle(), savedEntity.getTitle());
         assertEquals(entityStub.getStartDate(), savedEntity.getStartDate());
         assertEquals(entityStub.getEndDate(), savedEntity.getEndDate());
